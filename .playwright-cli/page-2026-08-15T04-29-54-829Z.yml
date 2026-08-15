@@ -1,0 +1,106 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: RHINORY BACK OFFICE
+        - heading "운영 센터" [level=1] [ref=e25]
+      - generic [ref=e26]:
+        - generic [ref=e27]: DEMO DATA
+        - link "사이트 보기" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - button "로그아웃" [ref=e29] [cursor=pointer]
+    - navigation [ref=e30]:
+      - button "Overview" [ref=e31] [cursor=pointer]
+      - button "Products" [ref=e32] [cursor=pointer]
+      - button "Inventory" [ref=e33] [cursor=pointer]
+      - button "Orders" [ref=e34] [cursor=pointer]
+      - button "Inquiries" [ref=e35] [cursor=pointer]
+      - button "Suppliers" [ref=e36] [cursor=pointer]
+      - button "Categories" [ref=e37] [cursor=pointer]
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - text: 현재는 데모 데이터입니다. 실제 저장을 사용하려면
+        - code [ref=e40]: DATABASE_URL
+        - text: 을 넣고 DB 스키마를 적용하세요.
+        - button "초기 데이터 준비" [ref=e41] [cursor=pointer]
+      - generic [ref=e42]: 관리자 세션이 시작되었습니다.
+      - generic [ref=e43]:
+        - article [ref=e44]:
+          - text: 전체 상품
+          - strong [ref=e45]: "7"
+          - text: 등록된 카탈로그
+        - article [ref=e46]:
+          - text: 판매 중
+          - strong [ref=e47]: "6"
+          - text: 공개 상태 상품
+        - article [ref=e48]:
+          - text: 주문
+          - strong [ref=e49]: "3"
+          - text: 누적 주문
+        - article [ref=e50]:
+          - text: 결제 매출
+          - strong [ref=e51]: 3,470,000원
+          - text: 결제 완료 기준
+        - article [ref=e52]:
+          - text: 재고 확인 필요
+          - strong [ref=e53]: "4"
+          - text: 재주문 기준 이하
+        - article [ref=e54]:
+          - text: 새 문의
+          - strong [ref=e55]: "1"
+          - text: 상담 · 입점 문의
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - paragraph [ref=e60]: STOCK WATCH
+              - heading "재고 확인이 필요한 상품" [level=2] [ref=e61]
+            - button "전체 재고 보기" [ref=e62] [cursor=pointer]
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]:
+                - strong [ref=e66]: 모듈형 야외창고
+                - generic [ref=e67]: RF-ST-032
+              - generic [ref=e68]: 2개
+            - generic [ref=e69]:
+              - generic [ref=e70]:
+                - strong [ref=e71]: 알루미늄 퍼골라
+                - generic [ref=e72]: RF-OD-019
+              - generic [ref=e73]: 0개
+            - generic [ref=e74]:
+              - generic [ref=e75]:
+                - strong [ref=e76]: 알루미늄 카포트 3×6m
+                - generic [ref=e77]: RF-PK-006
+              - generic [ref=e78]: 2개
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - strong [ref=e81]: 외부형 CCTV 세트
+                - generic [ref=e82]: RF-SC-011
+              - generic [ref=e83]: 0개
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - paragraph [ref=e87]: INBOX
+              - heading "최근 문의" [level=2] [ref=e88]
+            - button "전체 문의 보기" [ref=e89] [cursor=pointer]
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e92]: NEW
+              - generic [ref=e93]:
+                - strong [ref=e94]: 김도윤 · CONSULT
+                - paragraph [ref=e95]: 용인 단독주택 자동대문 설치 상담
+              - time [ref=e96]: 2026-08-14
+            - generic [ref=e97]:
+              - generic [ref=e98]: IN_PROGRESS
+              - generic [ref=e99]:
+                - strong [ref=e100]: 박정우 · PARTNER
+                - paragraph [ref=e101]: 알루미늄 펜스 입점 문의
+              - time [ref=e102]: 2026-08-13
+            - generic [ref=e103]:
+              - generic [ref=e104]: DONE
+              - generic [ref=e105]:
+                - strong [ref=e106]: 이서연 · CONSULT
+                - paragraph [ref=e107]: 퍼골라 설치 가능 지역 문의
+              - time [ref=e108]: 2026-08-12
+  - button "Open Next.js Dev Tools" [ref=e17] [cursor=pointer]
+  - alert [ref=e21]

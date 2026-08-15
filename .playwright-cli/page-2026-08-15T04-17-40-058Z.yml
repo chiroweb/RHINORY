@@ -1,0 +1,176 @@
+- generic [active] [ref=e1]:
+  - link "Skip to selected work" [ref=e2] [cursor=pointer]:
+    - /url: "#work"
+  - banner "Primary navigation" [ref=e3]:
+    - link "BLESS CONTENTS home" [ref=e4] [cursor=pointer]:
+      - /url: "#top"
+      - text: BLESS
+    - navigation [ref=e5]:
+      - link "Bliss" [ref=e6] [cursor=pointer]:
+        - /url: ./index.html
+      - link "Unitstills" [ref=e7] [cursor=pointer]:
+        - /url: ./unitstills.html
+      - link "Making Film" [ref=e8] [cursor=pointer]:
+        - /url: ./making-film.html
+      - link "Special / Campaign" [ref=e9] [cursor=pointer]:
+        - /url: ./special.html
+      - link "Contact" [ref=e10] [cursor=pointer]:
+        - /url: ./contact.html
+    - button "Toggle compact project view" [ref=e11] [cursor=pointer]
+  - main [ref=e15]:
+    - region [ref=e16]:
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Independent creative studio
+        - paragraph [ref=e19]: Moving image / Direction
+        - paragraph [ref=e20]: SEOUL — 13:17
+      - heading "BLESS CONTENTS" [level=1] [ref=e22]:
+        - generic [ref=e23]: BLESS
+        - generic [ref=e24]: CONTENTS
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: Selected archive2022—2026
+        - link "View all work" [ref=e27] [cursor=pointer]:
+          - /url: "#work"
+          - generic [ref=e29]: ↓
+        - paragraph [ref=e30]: Available worldwideBased in Seoul
+    - region [ref=e31]:
+      - generic [ref=e32]:
+        - heading "Selected work" [level=2] [ref=e33]
+        - paragraph [ref=e34]: 10 shown / 60 total
+        - paragraph [ref=e35]: Scroll to explore
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - article [ref=e38]:
+            - link "Open 마데레사, Netflix / Unit still, Archive" [ref=e39] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e40]:
+                - generic [ref=e41]: BC—001
+                - generic [ref=e42]: Image pending
+                - generic [ref=e43]: +
+              - generic [ref=e44]:
+                - heading "마데레사" [level=3] [ref=e45]
+                - paragraph [ref=e46]: Netflix / Unit stillArchive
+          - article [ref=e47]:
+            - link "Open 넉오프, Disney + / Unit still, Archive" [ref=e48] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e49]:
+                - generic [ref=e50]: BC—004
+                - generic [ref=e51]: Image pending
+                - generic [ref=e52]: +
+              - generic [ref=e53]:
+                - heading "넉오프" [level=3] [ref=e54]
+                - paragraph [ref=e55]: Disney + / Unit stillArchive
+          - article [ref=e56]:
+            - link "Open 대리수능, TIVING / Unit still, Archive" [ref=e57] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e58]:
+                - generic [ref=e59]: BC—006
+                - generic [ref=e60]: Image pending
+                - generic [ref=e61]: +
+              - generic [ref=e62]:
+                - heading "대리수능" [level=3] [ref=e63]
+                - paragraph [ref=e64]: TIVING / Unit stillArchive
+          - article [ref=e65]:
+            - link "Open 신입사원 강회장, JTBC / Unit still, 2026" [ref=e66] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e67]:
+                - generic [ref=e68]: BC—009
+                - generic [ref=e69]: Image pending
+                - generic [ref=e70]: +
+              - generic [ref=e71]:
+                - heading "신입사원 강회장" [level=3] [ref=e72]
+                - paragraph [ref=e73]: JTBC / Unit still2026
+        - generic [ref=e74]:
+          - article [ref=e75]:
+            - link "Open 그랜드 갤럭시 호텔, Netflix / Unit still, Archive" [ref=e76] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e77]:
+                - generic [ref=e78]: BC—002
+                - generic [ref=e79]: Image pending
+                - generic [ref=e80]: +
+              - generic [ref=e81]:
+                - heading "그랜드 갤럭시 호텔" [level=3] [ref=e82]
+                - paragraph [ref=e83]: Netflix / Unit stillArchive
+          - article [ref=e84]:
+            - link "Open 너 말고 다른 연애, KBS / Unit still, 2026" [ref=e85] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e86]:
+                - generic [ref=e87]: BC—007
+                - generic [ref=e88]: Image pending
+                - generic [ref=e89]: +
+              - generic [ref=e90]:
+                - heading "너 말고 다른 연애" [level=3] [ref=e91]
+                - paragraph [ref=e92]: KBS / Unit still2026
+        - generic [ref=e93]:
+          - article [ref=e94]:
+            - link "Open 연애의 재발견, JTBC / Unit still, Archive" [ref=e95] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e96]:
+                - generic [ref=e97]: BC—003
+                - generic [ref=e98]: Image pending
+                - generic [ref=e99]: +
+              - generic [ref=e100]:
+                - heading "연애의 재발견" [level=3] [ref=e101]
+                - paragraph [ref=e102]: JTBC / Unit stillArchive
+          - article [ref=e103]:
+            - link "Open 밑도 끝도 없이 너다, Life Time / Unit still, Archive" [ref=e104] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e105]:
+                - generic [ref=e106]: BC—005
+                - generic [ref=e107]: Image pending
+                - generic [ref=e108]: +
+              - generic [ref=e109]:
+                - heading "밑도 끝도 없이 너다" [level=3] [ref=e110]
+                - paragraph [ref=e111]: Life Time / Unit stillArchive
+          - article [ref=e112]:
+            - link "Open 오싹한 연애, tvN / Unit still, 2026" [ref=e113] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e114]:
+                - generic [ref=e115]: BC—008
+                - generic [ref=e116]: Image pending
+                - generic [ref=e117]: +
+              - generic [ref=e118]:
+                - heading "오싹한 연애" [level=3] [ref=e119]
+                - paragraph [ref=e120]: tvN / Unit still2026
+          - article [ref=e121]:
+            - link "Open 모두가 자신의 무가치함과 싸우고 있다, JTBC / Unit still, 2026" [ref=e122] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e123]:
+                - generic [ref=e124]: BC—010
+                - generic [ref=e125]: Image pending
+                - generic [ref=e126]: +
+              - generic [ref=e127]:
+                - heading "모두가 자신의 무가치함과 싸우고 있다" [level=3] [ref=e128]
+                - paragraph [ref=e129]: JTBC / Unit still2026
+      - button "Show 10 more projects. 10 of 124 currently shown." [ref=e131] [cursor=pointer]:
+        - generic [ref=e132]: More projects
+        - generic [ref=e133]: 10 / 60
+    - region [ref=e134]:
+      - generic [ref=e135]: (S—01)
+      - heading "We make films and images for culture in motion." [level=2] [ref=e136]:
+        - generic [ref=e137]: We make films and
+        - generic [ref=e138]: images
+        - generic [ref=e139]: for culture in motion.
+      - img "Studio image placeholder" [ref=e140]:
+        - generic [ref=e141]: Studio image
+        - generic [ref=e142]: S—01 / Pending
+      - generic [ref=e143]:
+        - paragraph [ref=e144]: BLESS CONTENTS is an independent studio working across direction, moving image, identity and visual culture.
+        - paragraph [ref=e145]: Small by design. Built to collaborate with artists, agencies and brands anywhere in the world.
+  - contentinfo [ref=e146]:
+    - generic [ref=e147]:
+      - paragraph [ref=e148]: New business / Collaborations
+      - paragraph [ref=e149]: Seoul, KR
+      - paragraph [ref=e150]: © BLESS CONTENTS, 2026
+    - link "LET'S MAKE SOMETHING" [ref=e151] [cursor=pointer]:
+      - /url: mailto:hello@blesscontents.studio
+      - generic [ref=e152]: LET'S MAKE
+      - generic [ref=e153]: SOMETHING
+    - generic [ref=e154]:
+      - link "hello@blesscontents.studio" [ref=e155] [cursor=pointer]:
+        - /url: mailto:hello@blesscontents.studio
+      - generic [ref=e156]:
+        - link "Instagram" [ref=e157] [cursor=pointer]:
+          - /url: "#"
+        - link "Vimeo" [ref=e158] [cursor=pointer]:
+          - /url: "#"
+      - button "Back to top ↑" [ref=e159] [cursor=pointer]

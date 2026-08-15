@@ -1,0 +1,418 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: RHINORY HOUSE · LAND · OUTDOOR
+    - generic [ref=e5]:
+      - text: 설치가 필요한 상품은 상담부터 도와드립니다
+      - generic [ref=e6]: →
+  - generic [ref=e7]:
+    - link "RHINORY 홈" [ref=e8] [cursor=pointer]:
+      - /url: /
+      - img "RHINORY" [ref=e9]
+    - button "상품 검색" [ref=e10] [cursor=pointer]:
+      - generic [ref=e11]: 상품명, 카테고리, 브랜드를 검색해보세요.
+    - generic [ref=e15]:
+      - button "검색 열기" [ref=e16] [cursor=pointer]
+      - link "마이 RHINORY" [ref=e20] [cursor=pointer]:
+        - /url: /mypage
+      - link "장바구니 0" [ref=e21] [cursor=pointer]:
+        - /url: /cart
+        - text: 장바구니
+        - generic [ref=e22]: "0"
+      - link "입점문의" [ref=e23] [cursor=pointer]:
+        - /url: /partner
+        - text: 입점문의
+        - generic [ref=e24]: →
+  - generic [ref=e25]:
+    - complementary [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e31]: 전체 카테고리
+        - generic [ref=e32]: "09"
+      - generic [ref=e33]:
+        - link "울타리 · 담장 ›" [ref=e34] [cursor=pointer]:
+          - /url: /category/boundary
+          - generic [ref=e38]: 울타리 · 담장
+          - generic [ref=e39]: ›
+        - link "대문 · 출입 ›" [ref=e40] [cursor=pointer]:
+          - /url: /category/gate
+          - generic [ref=e44]: 대문 · 출입
+          - generic [ref=e45]: ›
+        - link "창고 · 수납 ›" [ref=e46] [cursor=pointer]:
+          - /url: /category/storage
+          - generic [ref=e50]: 창고 · 수납
+          - generic [ref=e51]: ›
+        - link "퍼골라 · 데크 ›" [ref=e52] [cursor=pointer]:
+          - /url: /category/outdoor
+          - generic [ref=e56]: 퍼골라 · 데크
+          - generic [ref=e57]: ›
+        - link "정원 · 잔디 ›" [ref=e58] [cursor=pointer]:
+          - /url: /category/garden
+          - generic [ref=e62]: 정원 · 잔디
+          - generic [ref=e63]: ›
+        - link "보안 · CCTV ›" [ref=e64] [cursor=pointer]:
+          - /url: /category/security
+          - generic [ref=e70]: 보안 · CCTV
+          - generic [ref=e71]: ›
+        - link "주차 · 카포트 ›" [ref=e72] [cursor=pointer]:
+          - /url: /category/parking
+          - generic [ref=e76]: 주차 · 카포트
+          - generic [ref=e77]: ›
+        - link "수영장 · 물관리 ›" [ref=e78] [cursor=pointer]:
+          - /url: /category/water
+          - generic [ref=e82]: 수영장 · 물관리
+          - generic [ref=e83]: ›
+        - link "청소 · 제설 · 관리 ›" [ref=e84] [cursor=pointer]:
+          - /url: /category/maintenance
+          - generic [ref=e88]: 청소 · 제설 · 관리
+          - generic [ref=e89]: ›
+      - generic [ref=e90]:
+        - text: MY RHINORY
+        - link "구매 가이드" [ref=e91] [cursor=pointer]:
+          - /url: /guide
+          - text: 구매 가이드
+          - generic [ref=e92]: →
+    - generic [ref=e94]:
+      - generic [ref=e96]:
+        - paragraph [ref=e97]: RHINORY / SEASON 01
+        - heading "트렌드가 머무는 공간, 라이프스타일이 시작되는 곳" [level=1] [ref=e98]: 트렌드가 머무는 공간,라이프스타일이시작되는 곳
+        - paragraph [ref=e99]: 단독주택과 야외공간에 필요한 모든 것.제품부터 설치까지 RHINORY가 제안합니다.
+        - link "지금 둘러보기" [ref=e100] [cursor=pointer]:
+          - /url: /category/boundary
+          - text: 지금 둘러보기
+          - generic [ref=e101]: →
+      - generic [ref=e102]:
+        - generic [ref=e103]: HOUSE · LAND · OUTDOOR
+        - generic [ref=e104]: 01 / 03
+      - generic "히어로 슬라이드 선택" [ref=e105]:
+        - button "1번 슬라이드" [ref=e106] [cursor=pointer]
+        - button "2번 슬라이드" [ref=e107] [cursor=pointer]
+        - button "3번 슬라이드" [ref=e108] [cursor=pointer]
+    - complementary [ref=e109]:
+      - 'link "01 / TODAY''S PICK 오늘의 특가 알루미늄 슬라이딩 대문 23% 08 : 45 : 12 990,000원~" [ref=e110] [cursor=pointer]':
+        - /url: /category/gate
+        - generic [ref=e111]:
+          - generic [ref=e112]: 01 / TODAY'S PICK
+          - generic [ref=e113]: →
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: 오늘의 특가
+          - heading "알루미늄 슬라이딩 대문" [level=2] [ref=e116]
+          - generic [ref=e117]:
+            - generic [ref=e118]: 23%
+            - strong [ref=e119]: "08 : 45 : 12"
+          - paragraph [ref=e120]: 990,000원~
+      - link "02 / NOW IN RHINORY 인기 카테고리 지금 가장 많이 찾는 것 울타리 대문 창고 정원" [ref=e121] [cursor=pointer]:
+        - /url: /category/boundary
+        - generic [ref=e122]:
+          - generic [ref=e123]: 02 / NOW IN RHINORY
+          - generic [ref=e124]: →
+        - generic [ref=e125]:
+          - paragraph [ref=e126]: 인기 카테고리
+          - heading "지금 가장 많이 찾는 것" [level=2] [ref=e127]
+        - generic [ref=e128]:
+          - generic [ref=e129]: 울타리
+          - generic [ref=e133]: 대문
+          - generic [ref=e137]: 창고
+          - generic [ref=e141]: 정원
+      - link "03 / RHINORY SERVICE 무료 설치 상담 우리 집에 맞는 방법을 함께 찾아보세요. 상담 신청하기 SITE PLAN" [ref=e145] [cursor=pointer]:
+        - /url: /consult
+        - generic [ref=e146]:
+          - generic [ref=e147]: 03 / RHINORY SERVICE
+          - generic [ref=e148]: →
+        - generic [ref=e149]:
+          - paragraph [ref=e150]: 무료 설치 상담
+          - heading "우리 집에 맞는 방법을 함께 찾아보세요." [level=2] [ref=e151]: 우리 집에 맞는 방법을함께 찾아보세요.
+          - generic [ref=e152]:
+            - text: 상담 신청하기
+            - generic [ref=e153]: →
+        - generic [ref=e154]: SITEPLAN
+  - generic [ref=e155]:
+    - generic [ref=e156]:
+      - generic [ref=e157]:
+        - paragraph [ref=e158]: SHOP / MOST WANTED
+        - heading "많이 찾는 상품" [level=2] [ref=e159]
+      - link "전체 보기" [ref=e160] [cursor=pointer]:
+        - /url: /category/boundary
+        - text: 전체 보기
+        - generic [ref=e161]: →
+    - generic [ref=e162]:
+      - link "BEST 알루미늄 슬라이딩 대문 알루미늄 슬라이딩 대문 찜하기 GATE · RF-GT-014 알루미늄 슬라이딩 대문 1,290,000원~ 4.9 (128)" [ref=e163] [cursor=pointer]:
+        - /url: /product/%EC%95%8C%EB%A3%A8%EB%AF%B8%EB%8A%84%20%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%94%A9%20%EB%8C%80%EB%AC%B8
+        - generic [ref=e164]:
+          - generic [ref=e165]: BEST
+          - img "알루미늄 슬라이딩 대문" [ref=e166]
+          - button "알루미늄 슬라이딩 대문 찜하기" [ref=e167]
+        - generic [ref=e170]:
+          - paragraph [ref=e171]: GATE · RF-GT-014
+          - heading "알루미늄 슬라이딩 대문" [level=3] [ref=e172]
+          - generic [ref=e173]: 1,290,000원~
+          - generic [ref=e174]:
+            - text: "4.9"
+            - generic [ref=e177]: (128)
+      - link "알루미늄 루버 펜스 알루미늄 루버 펜스 찜하기 BOUNDARY · RF-BD-021 알루미늄 루버 펜스 450,000원~ 4.8 (96)" [ref=e178] [cursor=pointer]:
+        - /url: /product/%EC%95%8C%EB%A3%A8%EB%AF%B8%EB%8A%84%20%EB%A3%A8%EB%B2%84%20%ED%8E%9C%EC%8A%A4
+        - generic [ref=e179]:
+          - img "알루미늄 루버 펜스" [ref=e180]
+          - button "알루미늄 루버 펜스 찜하기" [ref=e181]
+        - generic [ref=e184]:
+          - paragraph [ref=e185]: BOUNDARY · RF-BD-021
+          - heading "알루미늄 루버 펜스" [level=3] [ref=e186]
+          - generic [ref=e187]: 450,000원~
+          - generic [ref=e188]:
+            - text: "4.8"
+            - generic [ref=e191]: (96)
+      - link "합성목 데크 시스템 합성목 데크 시스템 찜하기 OUTDOOR · RF-OD-008 합성목 데크 시스템 280,000원~ 4.7 (74)" [ref=e192] [cursor=pointer]:
+        - /url: /product/%ED%95%A9%EC%84%B1%EB%AA%A9%20%EB%8D%B0%ED%81%AC%20%EC%8B%9C%EC%8A%A4%ED%85%9C
+        - generic [ref=e193]:
+          - img "합성목 데크 시스템" [ref=e194]
+          - button "합성목 데크 시스템 찜하기" [ref=e195]
+        - generic [ref=e198]:
+          - paragraph [ref=e199]: OUTDOOR · RF-OD-008
+          - heading "합성목 데크 시스템" [level=3] [ref=e200]
+          - generic [ref=e201]: 280,000원~
+          - generic [ref=e202]:
+            - text: "4.7"
+            - generic [ref=e205]: (74)
+      - link "모듈형 야외창고 모듈형 야외창고 찜하기 STORAGE · RF-ST-032 모듈형 야외창고 2,180,000원~ 5.0 (43)" [ref=e206] [cursor=pointer]:
+        - /url: /product/%EB%AA%A8%EB%93%88%ED%98%95%20%EC%95%BC%EC%99%B8%EC%B0%BD%EA%B3%A0
+        - generic [ref=e207]:
+          - img "모듈형 야외창고" [ref=e208]
+          - button "모듈형 야외창고 찜하기" [ref=e209]
+        - generic [ref=e212]:
+          - paragraph [ref=e213]: STORAGE · RF-ST-032
+          - heading "모듈형 야외창고" [level=3] [ref=e214]
+          - generic [ref=e215]: 2,180,000원~
+          - generic [ref=e216]:
+            - text: "5.0"
+            - generic [ref=e219]: (43)
+  - generic [ref=e220]:
+    - generic [ref=e221]:
+      - generic [ref=e222]:
+        - generic [ref=e223]:
+          - paragraph [ref=e224]: SHOP / SEASON SALE
+          - heading "할인 상품" [level=2] [ref=e225]
+        - link "전체 보기" [ref=e226] [cursor=pointer]:
+          - /url: /category/sale
+          - text: 전체 보기
+          - generic [ref=e227]: →
+      - generic [ref=e228]:
+        - link "SALE 조립식 가든하우스 조립식 가든하우스 찜하기 조립식 가든하우스 1,100,000원 890,000원 19%" [ref=e229] [cursor=pointer]:
+          - /url: /product/%EC%A1%B0%EB%A6%BD%EC%8B%9D%20%EA%B0%80%EB%93%A0%ED%95%98%EC%9A%B0%EC%8A%A4
+          - generic [ref=e230]:
+            - generic [ref=e231]: SALE
+            - img "조립식 가든하우스" [ref=e232]
+            - button "조립식 가든하우스 찜하기" [ref=e233]
+          - generic [ref=e236]:
+            - heading "조립식 가든하우스" [level=3] [ref=e237]
+            - generic [ref=e238]:
+              - generic [ref=e239]: 1,100,000원
+              - strong [ref=e240]: 890,000원
+              - emphasis [ref=e241]: 19%
+        - link "야외 데크 라운지 세트 야외 데크 라운지 세트 찜하기 야외 데크 라운지 세트 650,000원 520,000원 20%" [ref=e242] [cursor=pointer]:
+          - /url: /product/%EC%95%BC%EC%99%B8%20%EB%8D%B0%ED%81%AC%20%EB%9D%BC%EC%9A%B4%EC%A7%80%20%EC%84%B8%ED%8A%B8
+          - generic [ref=e243]:
+            - img "야외 데크 라운지 세트" [ref=e244]
+            - button "야외 데크 라운지 세트 찜하기" [ref=e245]
+          - generic [ref=e248]:
+            - heading "야외 데크 라운지 세트" [level=3] [ref=e249]
+            - generic [ref=e250]:
+              - generic [ref=e251]: 650,000원
+              - strong [ref=e252]: 520,000원
+              - emphasis [ref=e253]: 20%
+        - link "알루미늄 카포트 3×6m 알루미늄 카포트 3×6m 찜하기 알루미늄 카포트 3×6m 1,250,000원 990,000원 21%" [ref=e254] [cursor=pointer]:
+          - /url: /product/%EC%95%8C%EB%A3%A8%EB%AF%B8%EB%8A%84%20%EC%B9%B4%ED%8F%AC%ED%8A%B8%203%C3%976m
+          - generic [ref=e255]:
+            - img "알루미늄 카포트 3×6m" [ref=e256]
+            - button "알루미늄 카포트 3×6m 찜하기" [ref=e257]
+          - generic [ref=e260]:
+            - heading "알루미늄 카포트 3×6m" [level=3] [ref=e261]
+            - generic [ref=e262]:
+              - generic [ref=e263]: 1,250,000원
+              - strong [ref=e264]: 990,000원
+              - emphasis [ref=e265]: 21%
+    - generic [ref=e266]:
+      - generic [ref=e267]:
+        - generic [ref=e268]:
+          - paragraph [ref=e269]: RHINORY / SELECT
+          - heading "이번 달의 선택" [level=2] [ref=e270]
+        - link "전체 보기" [ref=e271] [cursor=pointer]:
+          - /url: /category/select
+          - text: 전체 보기
+          - generic [ref=e272]: →
+      - link [ref=e273] [cursor=pointer]:
+        - /url: /product/aluminum-louver-fence
+        - img "알루미늄 루버 펜스가 설치된 주택" [ref=e274]
+        - generic [ref=e275]:
+          - text: RHINORY SELECT / 01
+          - heading "공간의 경계를 가볍고 단단하게." [level=3] [ref=e276]: 공간의 경계를가볍고 단단하게.
+          - paragraph [ref=e277]: 알루미늄 루버 펜스 · 설치 사례 128
+          - generic [ref=e278]: →
+  - generic [ref=e279]:
+    - generic [ref=e280]:
+      - paragraph [ref=e281]: PROJECT / BY THE LAND
+      - heading [level=2] [ref=e282]:
+        - text: 무엇을 살지보다,
+        - emphasis [ref=e283]: 무엇을 해결할지
+        - text: 부터.
+      - paragraph [ref=e284]: 땅이 있는 집에서 시작되는 고민을 공간별로 정리했습니다. 필요한 방법을 찾고, 맞는 상품과 설치까지 한 번에 확인해보세요.
+      - link "프로젝트 둘러보기" [ref=e285] [cursor=pointer]:
+        - /url: /project
+        - text: 프로젝트 둘러보기
+        - generic [ref=e286]: →
+    - generic [ref=e287]:
+      - img "주택과 마당, 정원, 주차 공간이 표시된 사이트 플랜" [ref=e288]
+      - generic [ref=e289]: HOUSE
+      - generic [ref=e290]: GARDEN
+      - generic [ref=e291]: GATE
+      - generic [ref=e292]: STORAGE
+      - generic [ref=e293]: ＋
+      - generic [ref=e294]: ＋
+  - generic [ref=e295]:
+    - generic [ref=e296]:
+      - generic [ref=e297]:
+        - paragraph [ref=e298]: SERVICE / INSTALLATION
+        - heading "설치가 필요한 상품" [level=2] [ref=e299]
+      - paragraph [ref=e300]: 제품을 고르는 일부터 현장에 맞는 설치까지,RHINORY가 다음 단계를 안내합니다.
+    - generic [ref=e301]:
+      - link [ref=e302] [cursor=pointer]:
+        - /url: /category/gate
+        - img "자동 대문 설치 사례" [ref=e303]
+        - generic [ref=e304]:
+          - text: GATE / INSTALL
+          - heading "자동대문" [level=3] [ref=e305]
+          - paragraph [ref=e306]: 차량 출입과 집의 첫인상을 함께 설계합니다.
+          - generic [ref=e307]: →
+      - link [ref=e308] [cursor=pointer]:
+        - /url: /category/outdoor
+        - img "퍼골라 설치 사례" [ref=e309]
+        - generic [ref=e310]:
+          - text: OUTDOOR / INSTALL
+          - heading "퍼골라 · 데크" [level=3] [ref=e311]
+          - paragraph [ref=e312]: 마당에 오래 머물 수 있는 그늘과 바닥.
+          - generic [ref=e313]: →
+      - link [ref=e314] [cursor=pointer]:
+        - /url: /consult
+        - generic [ref=e315]:
+          - text: RHINORY SERVICE
+          - heading "내 집에 맞는 설치를 상담하세요." [level=3] [ref=e316]: 내 집에 맞는설치를 상담하세요.
+          - paragraph [ref=e317]: 지역과 현장 조건을 먼저 확인합니다.
+          - generic [ref=e318]:
+            - text: 상담 시작하기
+            - generic [ref=e319]: →
+  - generic [ref=e320]:
+    - generic [ref=e321]:
+      - generic [ref=e322]:
+        - paragraph [ref=e323]: PROJECT / REAL HOMES
+        - heading "실제 설치 사례" [level=2] [ref=e324]
+      - link "전체 보기" [ref=e325] [cursor=pointer]:
+        - /url: /project
+        - text: 전체 보기
+        - generic [ref=e326]: →
+    - generic [ref=e327]:
+      - link [ref=e328] [cursor=pointer]:
+        - /url: /project/yongin-fence
+        - img "용인 단독주택 울타리 설치 사례" [ref=e329]
+        - generic [ref=e330]:
+          - text: CASE 014 · GYEONGGI / YONGIN
+          - heading "알루미늄 울타리와 자동대문으로 완성한 집의 경계" [level=3] [ref=e331]: 알루미늄 울타리와 자동대문으로완성한 집의 경계
+          - paragraph [ref=e332]: 대지 120평 · 총비용 5,800,000원 · 시공 2일
+      - generic [ref=e333]:
+        - link [ref=e334] [cursor=pointer]:
+          - /url: /project/garden-house
+          - text: CASE 013
+          - strong [ref=e335]: 마당 한편에 놓은 작은 가든하우스
+          - generic [ref=e336]:
+            - text: 경기 남양주 · 2,180,000원~
+            - generic [ref=e337]: →
+        - link [ref=e338] [cursor=pointer]:
+          - /url: /project/pergola
+          - text: CASE 012
+          - strong [ref=e339]: 저녁이 길어지는 알루미늄 퍼골라
+          - generic [ref=e340]:
+            - text: 충북 청주 · 4,600,000원~
+            - generic [ref=e341]: →
+        - link [ref=e342] [cursor=pointer]:
+          - /url: /project/carport
+          - text: CASE 011
+          - strong [ref=e343]: 비와 눈으로부터 차량을 지키는 법
+          - generic [ref=e344]:
+            - text: 강원 춘천 · 3,900,000원~
+            - generic [ref=e345]: →
+  - generic [ref=e346]:
+    - generic [ref=e347]:
+      - generic [ref=e348]:
+        - paragraph [ref=e349]: KNOWLEDGE / RHINORY EDITORIAL
+        - heading "집 밖을 더 잘 쓰는 법" [level=2] [ref=e350]
+      - link "전체 보기" [ref=e351] [cursor=pointer]:
+        - /url: /guide
+        - text: 전체 보기
+        - generic [ref=e352]: →
+    - generic [ref=e353]:
+      - link "GATE / GUIDE 01 전원주택 대문 선택 가이드 우리 집에 어울리는 대문을 고르는 네 가지 기준" [ref=e354] [cursor=pointer]:
+        - /url: /guide
+        - generic [ref=e355]: GATE / GUIDE 01
+        - generic [ref=e357]:
+          - heading "전원주택 대문 선택 가이드" [level=3] [ref=e358]
+          - paragraph [ref=e359]: 우리 집에 어울리는 대문을 고르는 네 가지 기준
+          - generic [ref=e360]: →
+      - link "OUTDOOR / CHECK 02 데크 시공 전 체크리스트 오래 사용하는 외부공간은 바닥에서 시작됩니다" [ref=e361] [cursor=pointer]:
+        - /url: /guide
+        - generic [ref=e362]: OUTDOOR / CHECK 02
+        - generic [ref=e364]:
+          - heading "데크 시공 전 체크리스트" [level=3] [ref=e365]
+          - paragraph [ref=e366]: 오래 사용하는 외부공간은 바닥에서 시작됩니다
+          - generic [ref=e367]: →
+      - link "BOUNDARY / NOTE 03 울타리 설치 가이드 높이와 소재, 프라이버시의 균형을 찾는 법" [ref=e368] [cursor=pointer]:
+        - /url: /guide
+        - generic [ref=e369]: BOUNDARY / NOTE 03
+        - generic [ref=e371]:
+          - heading "울타리 설치 가이드" [level=3] [ref=e372]
+          - paragraph [ref=e373]: 높이와 소재, 프라이버시의 균형을 찾는 법
+          - generic [ref=e374]: →
+  - generic [ref=e375]:
+    - generic [ref=e376]:
+      - paragraph [ref=e377]: RHINORY PARTNER
+      - heading "좋은 제품을 만들고 계신가요?" [level=2] [ref=e378]
+      - paragraph [ref=e379]: 판매와 고객 유입은 RHINORY가 돕겠습니다.제조사 · 수입사 · 유통사 · 설치업체를 기다립니다.
+    - link "입점 안내 보기" [ref=e380] [cursor=pointer]:
+      - /url: /partner
+      - text: 입점 안내 보기
+      - generic [ref=e381]: →
+  - generic [ref=e382]:
+    - generic [ref=e383]:
+      - generic [ref=e384]:
+        - img "RHINORY" [ref=e385]
+        - paragraph [ref=e386]: HOUSE · LAND · OUTDOOR
+      - generic [ref=e387]:
+        - generic [ref=e388]:
+          - strong [ref=e389]: SHOP
+          - link "울타리 · 담장" [ref=e390] [cursor=pointer]:
+            - /url: /category/boundary
+          - link "대문 · 출입" [ref=e391] [cursor=pointer]:
+            - /url: /category/gate
+          - link "창고 · 수납" [ref=e392] [cursor=pointer]:
+            - /url: /category/storage
+          - link "퍼골라 · 데크" [ref=e393] [cursor=pointer]:
+            - /url: /category/outdoor
+        - generic [ref=e394]:
+          - strong [ref=e395]: HELP
+          - link "구매 가이드" [ref=e396] [cursor=pointer]:
+            - /url: /guide
+          - link "설치 상담" [ref=e397] [cursor=pointer]:
+            - /url: /consult
+          - link "배송 · A/S" [ref=e398] [cursor=pointer]:
+            - /url: /faq
+          - link "고객센터" [ref=e399] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e400]:
+          - strong [ref=e401]: ABOUT
+          - link "RHINORY 소개" [ref=e402] [cursor=pointer]:
+            - /url: /about
+          - link "입점문의" [ref=e403] [cursor=pointer]:
+            - /url: /partner
+          - link "설치 사례" [ref=e404] [cursor=pointer]:
+            - /url: /project
+          - link "매거진" [ref=e405] [cursor=pointer]:
+            - /url: /guide
+    - generic [ref=e406]:
+      - generic [ref=e407]: © 2026 RHINORY. All rights reserved.
+      - generic [ref=e408]: 사업자정보 · 이용약관 · 개인정보처리방침
+      - generic [ref=e409]: HOUSE · LAND · OUTDOOR

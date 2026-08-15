@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1786727462518,
+      "tag": "0000_brown_thunderbolts",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786767957855,
+      "tag": "0001_ambiguous_carmella_unuscione",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1786771976802,
+      "tag": "0002_shocking_norman_osborn",
+      "breakpoints": true
+    }
+  ]
+}

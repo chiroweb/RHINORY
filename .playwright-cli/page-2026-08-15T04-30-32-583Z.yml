@@ -1,0 +1,126 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: RHINORY BACK OFFICE
+        - heading "운영 센터" [level=1] [ref=e25]
+      - generic [ref=e26]:
+        - generic [ref=e27]: DEMO DATA
+        - link "사이트 보기" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - button "로그아웃" [ref=e29] [cursor=pointer]
+    - navigation [ref=e30]:
+      - button "Overview" [ref=e31] [cursor=pointer]
+      - button "Products" [ref=e32] [cursor=pointer]
+      - button "Inventory" [ref=e33] [cursor=pointer]
+      - button "Orders" [active] [ref=e34] [cursor=pointer]
+      - button "Inquiries" [ref=e35] [cursor=pointer]
+      - button "Suppliers" [ref=e36] [cursor=pointer]
+      - button "Categories" [ref=e37] [cursor=pointer]
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - text: 현재는 데모 데이터입니다. 실제 저장을 사용하려면
+        - code [ref=e40]: DATABASE_URL
+        - text: 을 넣고 DB 스키마를 적용하세요.
+        - button "초기 데이터 준비" [ref=e41] [cursor=pointer]
+      - generic [ref=e42]: 관리자 세션이 시작되었습니다.
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - paragraph [ref=e112]: COMMERCE / ORDER FLOW
+            - heading "주문·배송 관리" [level=2] [ref=e113]
+          - generic [ref=e114]: 결제·설치·배송 상태를 한 화면에서 관리합니다.
+        - table [ref=e116]:
+          - rowgroup [ref=e117]:
+            - row [ref=e118]:
+              - columnheader "주문" [ref=e119]
+              - columnheader "고객" [ref=e120]
+              - columnheader "금액" [ref=e121]
+              - columnheader "결제" [ref=e122]
+              - columnheader "배송·설치" [ref=e123]
+              - columnheader "운송장" [ref=e124]
+              - columnheader "저장" [ref=e125]
+          - rowgroup [ref=e126]:
+            - row [ref=e127]:
+              - cell "RH-260814-001 2026-08-14" [ref=e128]:
+                - strong [ref=e129]: RH-260814-001
+                - generic [ref=e130]: 2026-08-14
+              - cell "김도윤 010-****-4821" [ref=e131]:
+                - strong [ref=e132]: 김도윤
+                - generic [ref=e133]: 010-****-4821
+              - cell "1,290,000원" [ref=e134]
+              - cell "PAID" [ref=e135]:
+                - combobox [ref=e136]:
+                  - option "UNPAID"
+                  - option "PENDING"
+                  - option "PAID" [selected]
+                  - option "REFUNDED"
+                  - option "FAILED"
+              - cell "INSTALL_SCHEDULED" [ref=e137]:
+                - combobox [ref=e138]:
+                  - option "NOT_STARTED"
+                  - option "PREPARING"
+                  - option "SHIPPED"
+                  - option "INSTALL_SCHEDULED" [selected]
+                  - option "DELIVERED"
+                  - option "CANCELED"
+              - cell [ref=e139]:
+                - textbox "운송장" [ref=e140]
+              - cell [ref=e141]:
+                - button "저장" [ref=e142] [cursor=pointer]
+            - row [ref=e143]:
+              - cell "RH-260813-004 2026-08-13" [ref=e144]:
+                - strong [ref=e145]: RH-260813-004
+                - generic [ref=e146]: 2026-08-13
+              - cell "이서연 010-****-6721" [ref=e147]:
+                - strong [ref=e148]: 이서연
+                - generic [ref=e149]: 010-****-6721
+              - cell "520,000원" [ref=e150]
+              - cell "PENDING" [ref=e151]:
+                - combobox [ref=e152]:
+                  - option "UNPAID"
+                  - option "PENDING" [selected]
+                  - option "PAID"
+                  - option "REFUNDED"
+                  - option "FAILED"
+              - cell "NOT_STARTED" [ref=e153]:
+                - combobox [ref=e154]:
+                  - option "NOT_STARTED" [selected]
+                  - option "PREPARING"
+                  - option "SHIPPED"
+                  - option "INSTALL_SCHEDULED"
+                  - option "DELIVERED"
+                  - option "CANCELED"
+              - cell [ref=e155]:
+                - textbox "운송장" [ref=e156]
+              - cell [ref=e157]:
+                - button "저장" [ref=e158] [cursor=pointer]
+            - row [ref=e159]:
+              - cell "RH-260812-002 2026-08-12" [ref=e160]:
+                - strong [ref=e161]: RH-260812-002
+                - generic [ref=e162]: 2026-08-12
+              - cell "박정우 010-****-1930" [ref=e163]:
+                - strong [ref=e164]: 박정우
+                - generic [ref=e165]: 010-****-1930
+              - cell "2,180,000원" [ref=e166]
+              - cell "PAID" [ref=e167]:
+                - combobox [ref=e168]:
+                  - option "UNPAID"
+                  - option "PENDING"
+                  - option "PAID" [selected]
+                  - option "REFUNDED"
+                  - option "FAILED"
+              - cell "DELIVERED" [ref=e169]:
+                - combobox [ref=e170]:
+                  - option "NOT_STARTED"
+                  - option "PREPARING"
+                  - option "SHIPPED"
+                  - option "INSTALL_SCHEDULED"
+                  - option "DELIVERED" [selected]
+                  - option "CANCELED"
+              - cell [ref=e171]:
+                - textbox "운송장" [ref=e172]: CJ123456789
+              - cell [ref=e173]:
+                - button "저장" [ref=e174] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e17] [cursor=pointer]
+  - alert [ref=e21]

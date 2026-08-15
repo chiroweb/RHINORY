@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "BLISS CONTENTS home" [ref=e3] [cursor=pointer]:
+      - /url: ./index.html
+      - generic [ref=e4]: BLISS
+      - generic [ref=e5]: CONTENTS
+    - navigation "Primary navigation" [ref=e6]:
+      - link "Bliss" [ref=e7] [cursor=pointer]:
+        - /url: ./index.html
+      - link "Unitstills" [ref=e8] [cursor=pointer]:
+        - /url: ./unitstills.html
+      - link "Making Film" [ref=e9] [cursor=pointer]:
+        - /url: ./making-film.html
+      - link "Special / Campaign" [ref=e10] [cursor=pointer]:
+        - /url: ./special.html
+      - link "Contact" [ref=e11] [cursor=pointer]:
+        - /url: ./contact.html
+    - paragraph [ref=e12]: NEW BUSINESSSEOUL / KOREA
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - paragraph [ref=e15]: C—01 / NEW BUSINESS
+      - heading "LET'S MAKE SOMETHING." [level=1] [ref=e16]:
+        - text: LET'S MAKE
+        - generic [ref=e17]: SOMETHING.
+      - paragraph [ref=e18]: 작품과 브랜드의 다음 장면을 함께 만듭니다.새로운 프로젝트와 협업 문의를 남겨주세요.
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: Contact
+        - link "bliss_media@naver.com" [ref=e22] [cursor=pointer]:
+          - /url: mailto:bliss_media@naver.com
+        - link "010.8959.3344" [ref=e23] [cursor=pointer]:
+          - /url: tel:+821089593344
+      - generic [ref=e24]:
+        - paragraph [ref=e25]: Services
+        - paragraph [ref=e26]: Unit still photographyMaking film / BTSCampaign & special contentVisual direction / Color
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: Studio
+        - paragraph [ref=e29]: BLISS CONTENTSSeoul, Republic of KoreaEST 2017
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: Resources
+        - link "Still data / Google Drive ↗" [ref=e32] [cursor=pointer]:
+          - /url: https://drive.google.com/drive/folders/1YbaTXaKpAxm0-6gv8oWPJeNWfz_VT6cB?usp=sharing
+        - link "Logo / assets ↗" [ref=e33] [cursor=pointer]:
+          - /url: https://drive.google.com/drive/folders/1PH7rlGZ432Lg9DMuezv50QMVxyLAsU6D?usp=sharing
+        - link "Reference sites ↗" [ref=e34] [cursor=pointer]:
+          - /url: https://www.reallyupthere.com/
+  - contentinfo [ref=e35]:
+    - paragraph [ref=e36]: BLISS CONTENTS
+    - paragraph [ref=e37]: We live together with images.
+    - paragraph [ref=e38]: © 2026

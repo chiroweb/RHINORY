@@ -1,0 +1,15 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - paragraph [ref=e4]: RHINORY BACK OFFICE
+      - heading "운영자 로그인" [level=1] [ref=e5]
+      - paragraph [ref=e6]: 상품, 재고, 이미지, 문의를 관리하는 내부 운영 화면입니다.
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - text: 관리자 접근 키
+          - textbox "관리자 접근 키" [active] [ref=e9]:
+            - /placeholder: ADMIN_ACCESS_KEY
+        - button "관리자 화면 들어가기" [ref=e10] [cursor=pointer]
+      - link "소비자 사이트로 돌아가기" [ref=e11] [cursor=pointer]:
+        - /url: /
+  - button "Open Next.js Dev Tools" [ref=e17] [cursor=pointer]

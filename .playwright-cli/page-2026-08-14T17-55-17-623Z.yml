@@ -1,0 +1,95 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: RHINORY BACK OFFICE
+        - heading "운영 센터" [level=1] [ref=e25]
+      - generic [ref=e26]:
+        - generic [ref=e27]: DEMO DATA
+        - link "사이트 보기" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - button "로그아웃" [ref=e29] [cursor=pointer]
+    - navigation [ref=e30]:
+      - button "Overview" [ref=e31] [cursor=pointer]
+      - button "Products" [ref=e32] [cursor=pointer]
+      - button "Inventory" [ref=e33] [cursor=pointer]
+      - button "Inquiries" [ref=e34] [cursor=pointer]
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - text: 현재는 데모 데이터입니다. 실제 저장을 사용하려면
+        - code [ref=e37]: DATABASE_URL
+        - text: 을 넣고 DB 스키마를 적용하세요.
+        - button "초기 데이터 준비" [ref=e38] [cursor=pointer]
+      - generic [ref=e39]: 관리자 세션이 시작되었습니다.
+      - generic [ref=e40]:
+        - article [ref=e41]:
+          - text: 전체 상품
+          - strong [ref=e42]: "7"
+          - text: 등록된 카탈로그
+        - article [ref=e43]:
+          - text: 판매 중
+          - strong [ref=e44]: "6"
+          - text: 공개 상태 상품
+        - article [ref=e45]:
+          - text: 재고 확인 필요
+          - strong [ref=e46]: "4"
+          - text: 재주문 기준 이하
+        - article [ref=e47]:
+          - text: 새 문의
+          - strong [ref=e48]: "1"
+          - text: 상담 · 입점 문의
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - paragraph [ref=e53]: STOCK WATCH
+              - heading "재고 확인이 필요한 상품" [level=2] [ref=e54]
+            - button "전체 재고 보기" [ref=e55] [cursor=pointer]
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - strong [ref=e59]: 모듈형 야외창고
+                - generic [ref=e60]: RF-ST-032
+              - generic [ref=e61]: 2개
+            - generic [ref=e62]:
+              - generic [ref=e63]:
+                - strong [ref=e64]: 알루미늄 퍼골라
+                - generic [ref=e65]: RF-OD-019
+              - generic [ref=e66]: 0개
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - strong [ref=e69]: 알루미늄 카포트 3×6m
+                - generic [ref=e70]: RF-PK-006
+              - generic [ref=e71]: 2개
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - strong [ref=e74]: 외부형 CCTV 세트
+                - generic [ref=e75]: RF-SC-011
+              - generic [ref=e76]: 0개
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - paragraph [ref=e80]: INBOX
+              - heading "최근 문의" [level=2] [ref=e81]
+            - button "전체 문의 보기" [ref=e82] [cursor=pointer]
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e85]: NEW
+              - generic [ref=e86]:
+                - strong [ref=e87]: 김도윤 · CONSULT
+                - paragraph [ref=e88]: 용인 단독주택 자동대문 설치 상담
+              - time [ref=e89]: 2026-08-14
+            - generic [ref=e90]:
+              - generic [ref=e91]: IN_PROGRESS
+              - generic [ref=e92]:
+                - strong [ref=e93]: 박정우 · PARTNER
+                - paragraph [ref=e94]: 알루미늄 펜스 입점 문의
+              - time [ref=e95]: 2026-08-13
+            - generic [ref=e96]:
+              - generic [ref=e97]: DONE
+              - generic [ref=e98]:
+                - strong [ref=e99]: 이서연 · CONSULT
+                - paragraph [ref=e100]: 퍼골라 설치 가능 지역 문의
+              - time [ref=e101]: 2026-08-12
+  - button "Open Next.js Dev Tools" [ref=e17] [cursor=pointer]
+  - alert [ref=e21]

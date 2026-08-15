@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">상품 이미지 준비 중</title>
+  <desc id="desc">RHINORY 상품 이미지 준비 중 플레이스홀더</desc>
+  <rect width="800" height="800" fill="#eef0ea"/>
+  <path d="M170 565h460M220 565V300h360v265M280 300v-55h240v55M320 565V420h160v145" fill="none" stroke="#7b847a" stroke-width="8"/>
+  <path d="M145 610h510" stroke="#c3c9c0" stroke-width="4"/>
+  <text x="400" y="675" fill="#6c756c" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" letter-spacing="5">IMAGE PREPARING</text>
+</svg>

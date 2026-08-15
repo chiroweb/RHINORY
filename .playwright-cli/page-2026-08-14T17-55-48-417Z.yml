@@ -1,0 +1,247 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: RHINORY BACK OFFICE
+        - heading "운영 센터" [level=1] [ref=e25]
+      - generic [ref=e26]:
+        - generic [ref=e27]: DEMO DATA
+        - link "사이트 보기" [ref=e28] [cursor=pointer]:
+          - /url: /
+        - button "로그아웃" [ref=e29] [cursor=pointer]
+    - navigation [ref=e30]:
+      - button "Overview" [ref=e31] [cursor=pointer]
+      - button "Products" [ref=e32] [cursor=pointer]
+      - button "Inventory" [ref=e33] [cursor=pointer]
+      - button "Inquiries" [ref=e34] [cursor=pointer]
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - text: 현재는 데모 데이터입니다. 실제 저장을 사용하려면
+        - code [ref=e37]: DATABASE_URL
+        - text: 을 넣고 DB 스키마를 적용하세요.
+        - button "초기 데이터 준비" [ref=e38] [cursor=pointer]
+      - generic [ref=e39]: 관리자 세션이 시작되었습니다.
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - paragraph [ref=e105]: CATALOG / PRODUCT CONTENT
+            - heading "상품 관리" [level=2] [ref=e106]
+          - button "등록 폼 닫기" [active] [ref=e252] [cursor=pointer]
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - text: 상품명
+            - textbox "상품명" [ref=e255]:
+              - /placeholder: 알루미늄 슬라이딩 대문
+          - generic [ref=e256]:
+            - text: SKU
+            - textbox "SKU" [ref=e257]:
+              - /placeholder: RF-GT-015
+          - generic [ref=e258]:
+            - text: 카테고리
+            - combobox "카테고리" [ref=e259]:
+              - option "울타리 · 담장"
+              - option "대문 · 출입" [selected]
+              - option "창고 · 수납"
+              - option "퍼골라 · 데크"
+              - option "정원 · 잔디"
+              - option "보안 · CCTV"
+              - option "주차 · 카포트"
+              - option "수영장 · 물관리"
+              - option "청소 · 제설 · 관리"
+          - generic [ref=e260]:
+            - text: 판매 방식
+            - combobox "판매 방식" [ref=e261]:
+              - option "일반 구매"
+              - option "구매 + 설치" [selected]
+              - option "현장 견적"
+          - generic [ref=e262]:
+            - text: 가격 표기
+            - textbox "가격 표기" [ref=e263]:
+              - /placeholder: 1,290,000원~
+              - text: 가격 상담
+          - generic [ref=e264]:
+            - text: 공급사
+            - textbox "공급사" [ref=e265]: 공급사 미지정
+          - generic [ref=e266]:
+            - text: 초기 재고
+            - spinbutton "초기 재고" [ref=e267]: "0"
+          - generic [ref=e268]:
+            - text: 재주문 기준
+            - spinbutton "재주문 기준" [ref=e269]: "5"
+          - generic [ref=e270]:
+            - text: 썸네일 URL
+            - textbox "썸네일 URL 이미지 업로드 Choose File" [ref=e271]:
+              - /placeholder: Vercel Blob URL 또는 로컬 이미지 경로
+              - text: /images/product-placeholder.svg
+            - generic [ref=e272] [cursor=pointer]:
+              - text: 이미지 업로드
+              - button "Choose File" [ref=e273]
+          - generic [ref=e274]:
+            - button "상품 등록" [ref=e275] [cursor=pointer]
+            - generic [ref=e276]: 등록 후 상품 상태를 PUBLISHED로 바꾸면 소비자 사이트에 공개됩니다.
+        - table [ref=e109]:
+          - rowgroup [ref=e110]:
+            - row [ref=e111]:
+              - columnheader "상품" [ref=e112]
+              - columnheader "SKU" [ref=e113]
+              - columnheader "상태" [ref=e114]
+              - columnheader "가격 표기" [ref=e115]
+              - columnheader "공급사 / 썸네일" [ref=e116]
+              - columnheader "저장" [ref=e117]
+          - rowgroup [ref=e118]:
+            - row [ref=e119]:
+              - cell "알루미늄 슬라이딩 대문 gate" [ref=e120]:
+                - generic [ref=e122]:
+                  - strong [ref=e123]: 알루미늄 슬라이딩 대문
+                  - generic [ref=e124]: gate
+              - cell [ref=e125]:
+                - code [ref=e126]: RF-GT-014
+              - cell "PUBLISHED" [ref=e127]:
+                - combobox [ref=e128]:
+                  - option "PUBLISHED" [selected]
+                  - option "DRAFT"
+                  - option "ARCHIVED"
+              - cell [ref=e129]:
+                - textbox [ref=e130]: 1,290,000원~
+              - cell "RHINORY 검증 파트너 A /images/product-gate.png 이미지 업로드" [ref=e131]:
+                - generic [ref=e132]: RHINORY 검증 파트너 A
+                - textbox "썸네일 URL" [ref=e133]: /images/product-gate.png
+                - generic [ref=e134] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e135]
+              - cell [ref=e136]:
+                - button "저장" [ref=e137] [cursor=pointer]
+            - row [ref=e138]:
+              - cell "알루미늄 루버 펜스 boundary" [ref=e139]:
+                - generic [ref=e141]:
+                  - strong [ref=e142]: 알루미늄 루버 펜스
+                  - generic [ref=e143]: boundary
+              - cell [ref=e144]:
+                - code [ref=e145]: RF-BD-021
+              - cell "PUBLISHED" [ref=e146]:
+                - combobox [ref=e147]:
+                  - option "PUBLISHED" [selected]
+                  - option "DRAFT"
+                  - option "ARCHIVED"
+              - cell [ref=e148]:
+                - textbox [ref=e149]: 450,000원~
+              - cell "RHINORY 검증 파트너 B /images/product-fence.png 이미지 업로드" [ref=e150]:
+                - generic [ref=e151]: RHINORY 검증 파트너 B
+                - textbox "썸네일 URL" [ref=e152]: /images/product-fence.png
+                - generic [ref=e153] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e154]
+              - cell [ref=e155]:
+                - button "저장" [ref=e156] [cursor=pointer]
+            - row [ref=e157]:
+              - cell "합성목 데크 시스템 outdoor" [ref=e158]:
+                - generic [ref=e160]:
+                  - strong [ref=e161]: 합성목 데크 시스템
+                  - generic [ref=e162]: outdoor
+              - cell [ref=e163]:
+                - code [ref=e164]: RF-OD-008
+              - cell "PUBLISHED" [ref=e165]:
+                - combobox [ref=e166]:
+                  - option "PUBLISHED" [selected]
+                  - option "DRAFT"
+                  - option "ARCHIVED"
+              - cell [ref=e167]:
+                - textbox [ref=e168]: 280,000원~
+              - cell "RHINORY 검증 파트너 C /images/product-deck.png 이미지 업로드" [ref=e169]:
+                - generic [ref=e170]: RHINORY 검증 파트너 C
+                - textbox "썸네일 URL" [ref=e171]: /images/product-deck.png
+                - generic [ref=e172] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e173]
+              - cell [ref=e174]:
+                - button "저장" [ref=e175] [cursor=pointer]
+            - row [ref=e176]:
+              - cell "모듈형 야외창고 storage" [ref=e177]:
+                - generic [ref=e179]:
+                  - strong [ref=e180]: 모듈형 야외창고
+                  - generic [ref=e181]: storage
+              - cell [ref=e182]:
+                - code [ref=e183]: RF-ST-032
+              - cell "PUBLISHED" [ref=e184]:
+                - combobox [ref=e185]:
+                  - option "PUBLISHED" [selected]
+                  - option "DRAFT"
+                  - option "ARCHIVED"
+              - cell [ref=e186]:
+                - textbox [ref=e187]: 2,180,000원~
+              - cell "RHINORY 검증 파트너 D /images/product-storage.png 이미지 업로드" [ref=e188]:
+                - generic [ref=e189]: RHINORY 검증 파트너 D
+                - textbox "썸네일 URL" [ref=e190]: /images/product-storage.png
+                - generic [ref=e191] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e192]
+              - cell [ref=e193]:
+                - button "저장" [ref=e194] [cursor=pointer]
+            - row [ref=e195]:
+              - cell "알루미늄 퍼골라 outdoor" [ref=e196]:
+                - generic [ref=e198]:
+                  - strong [ref=e199]: 알루미늄 퍼골라
+                  - generic [ref=e200]: outdoor
+              - cell [ref=e201]:
+                - code [ref=e202]: RF-OD-019
+              - cell "PUBLISHED" [ref=e203]:
+                - combobox [ref=e204]:
+                  - option "PUBLISHED" [selected]
+                  - option "DRAFT"
+                  - option "ARCHIVED"
+              - cell [ref=e205]:
+                - textbox [ref=e206]: 4,600,000원~
+              - cell "RHINORY 검증 파트너 E /images/product-pergola.png 이미지 업로드" [ref=e207]:
+                - generic [ref=e208]: RHINORY 검증 파트너 E
+                - textbox "썸네일 URL" [ref=e209]: /images/product-pergola.png
+                - generic [ref=e210] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e211]
+              - cell [ref=e212]:
+                - button "저장" [ref=e213] [cursor=pointer]
+            - row [ref=e214]:
+              - cell "알루미늄 카포트 3×6m parking" [ref=e215]:
+                - generic [ref=e217]:
+                  - strong [ref=e218]: 알루미늄 카포트 3×6m
+                  - generic [ref=e219]: parking
+              - cell [ref=e220]:
+                - code [ref=e221]: RF-PK-006
+              - cell "PUBLISHED" [ref=e222]:
+                - combobox [ref=e223]:
+                  - option "PUBLISHED" [selected]
+                  - option "DRAFT"
+                  - option "ARCHIVED"
+              - cell [ref=e224]:
+                - textbox [ref=e225]: 990,000원~
+              - cell "RHINORY 검증 파트너 F /images/product-carport.png 이미지 업로드" [ref=e226]:
+                - generic [ref=e227]: RHINORY 검증 파트너 F
+                - textbox "썸네일 URL" [ref=e228]: /images/product-carport.png
+                - generic [ref=e229] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e230]
+              - cell [ref=e231]:
+                - button "저장" [ref=e232] [cursor=pointer]
+            - row [ref=e233]:
+              - cell "외부형 CCTV 세트 security" [ref=e234]:
+                - generic [ref=e236]:
+                  - strong [ref=e237]: 외부형 CCTV 세트
+                  - generic [ref=e238]: security
+              - cell [ref=e239]:
+                - code [ref=e240]: RF-SC-011
+              - cell "DRAFT" [ref=e241]:
+                - combobox [ref=e242]:
+                  - option "PUBLISHED"
+                  - option "DRAFT" [selected]
+                  - option "ARCHIVED"
+              - cell [ref=e243]:
+                - textbox [ref=e244]: 390,000원~
+              - cell "공급사 미지정 /images/product-placeholder.svg 이미지 업로드" [ref=e245]:
+                - generic [ref=e246]: 공급사 미지정
+                - textbox "썸네일 URL" [ref=e247]: /images/product-placeholder.svg
+                - generic [ref=e248] [cursor=pointer]:
+                  - text: 이미지 업로드
+                  - button "이미지 업로드" [ref=e249]
+              - cell [ref=e250]:
+                - button "저장" [ref=e251] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e17] [cursor=pointer]
+  - alert [ref=e21]
