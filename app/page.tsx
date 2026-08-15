@@ -1,7 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { CartCount } from "./components/CartCount";
+import { MobileMenu } from "./components/MobileMenu";
+import { WishlistButton } from "./components/WishlistButton";
 
 const categories = [
   ["BOUNDARY", "울타리 · 담장", "/category/boundary"],
@@ -55,7 +59,6 @@ function CategoryIcon({ type }: { type: string }) {
 
 function SearchIcon() { return <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.2" fill="none" stroke="currentColor" strokeWidth="1.7" /><path d="m15.5 15.5 4.2 4.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>; }
 function MenuIcon() { return <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>; }
-function HeartIcon() { return <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2S4.5 15.8 4.5 9.8A4.1 4.1 0 0 1 12 7.3a4.1 4.1 0 0 1 7.5 2.5c0 6-7.5 10.4-7.5 10.4Z" fill="none" stroke="currentColor" strokeWidth="1.45" strokeLinejoin="round" /></svg>; }
 function StarIcon() { return <svg className="rating-star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" fill="currentColor" /></svg>; }
 
 function Arrow({ light = false }: { light?: boolean }) {
@@ -82,7 +85,7 @@ function ProductCard({ product, sale = false }: { product: ProductCardItem; sale
         {item.badge && <span className="product-badge">{item.badge}</span>}
         {item.tag && <span className="product-badge sale-badge">{item.tag}</span>}
         <img src={item.image} alt={item.name} style={{ objectPosition: item.position }} />
-        <button className="wishlist" aria-label={`${item.name} 찜하기`} onClick={(e) => e.preventDefault()}><HeartIcon /></button>
+        <WishlistButton productKey={item.name} />
       </div>
       <div className="product-copy">
         {item.meta && <p className="product-meta">{item.meta}</p>}
@@ -99,10 +102,20 @@ function ProductCard({ product, sale = false }: { product: ProductCardItem; sale
 }
 
 export default function Home() {
+  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState(0);
   const [slide, setSlide] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [catalogProducts, setCatalogProducts] = useState(process.env.NODE_ENV === "production" ? [] : popularProducts);
+
+  const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const query = searchQuery.trim();
+    const category = /대문|게이트|출입|자동/.test(query) ? "gate" : /울타리|펜스|담장|가림/.test(query) ? "boundary" : /창고|수납|가든하우스/.test(query) ? "storage" : /데크|퍼골라|야외/.test(query) ? "outdoor" : /정원|잔디/.test(query) ? "garden" : /보안|CCTV|카메라/.test(query) ? "security" : /주차|카포트|차고/.test(query) ? "parking" : /수영장|물관리/.test(query) ? "water" : /청소|제설|관리/.test(query) ? "maintenance" : "boundary";
+    router.push(`/category/${category}${query ? `?q=${encodeURIComponent(query)}` : ""}`);
+    setSearchOpen(false);
+  };
 
   useEffect(() => {
     const timer = window.setInterval(() => setSlide((current) => (current + 1) % 3), 7000);
@@ -131,9 +144,9 @@ export default function Home() {
         <div className="header-actions">
           <button className="icon-action search-trigger" onClick={() => setSearchOpen(true)} aria-label="검색 열기"><SearchIcon /></button>
           <Link href="/mypage" className="header-text-action">마이 RHINORY</Link>
-          <Link href="/cart" className="header-text-action cart-action">장바구니 <b>0</b></Link>
+          <Link href="/cart" className="header-text-action cart-action">장바구니 <CartCount /></Link>
           <Link href="/partner" className="partner-button">입점문의 <Arrow light /></Link>
-          <button className="mobile-menu" aria-label="메뉴 열기"><MenuIcon /></button>
+          <MobileMenu />
         </div>
       </header>
 
@@ -188,7 +201,7 @@ export default function Home() {
 
       <section className="split-shop page-frame">
         <div className="sale-panel"><SectionHeader eyebrow="SHOP / SEASON SALE" title="할인 상품" href="/category/sale" /><div className="product-grid three-col">{saleProducts.map((product) => <ProductCard product={product} sale key={product.name} />)}</div></div>
-        <div className="select-panel"><SectionHeader eyebrow="RHINORY / SELECT" title="이번 달의 선택" href="/category/select" /><Link href="/product/aluminum-louver-fence" className="select-feature"><img src="/images/product-fence.png" alt="알루미늄 루버 펜스가 설치된 주택" /><div className="select-overlay"><span>RHINORY SELECT / 01</span><h3>공간의 경계를<br />가볍고 단단하게.</h3><p>알루미늄 루버 펜스 · 설치 사례 128</p><Arrow light /></div></Link></div>
+        <div className="select-panel"><SectionHeader eyebrow="RHINORY / SELECT" title="이번 달의 선택" href="/category/select" /><Link href={`/product/${encodeURIComponent("알루미늄 루버 펜스")}`} className="select-feature"><img src="/images/product-fence.png" alt="알루미늄 루버 펜스가 설치된 주택" /><div className="select-overlay"><span>RHINORY SELECT / 01</span><h3>공간의 경계를<br />가볍고 단단하게.</h3><p>알루미늄 루버 펜스 · 설치 사례 128</p><Arrow light /></div></Link></div>
       </section>
 
       <section className="territory-section page-frame">
@@ -204,9 +217,9 @@ export default function Home() {
 
       <section className="partner-cta page-frame"><div><p className="eyebrow">RHINORY PARTNER</p><h2>좋은 제품을 만들고 계신가요?</h2><p>판매와 고객 유입은 RHINORY가 돕겠습니다.<br />제조사 · 수입사 · 유통사 · 설치업체를 기다립니다.</p></div><Link href="/partner" className="dark-button">입점 안내 보기 <Arrow light /></Link></section>
 
-      <footer className="site-footer"><div className="footer-top page-frame"><div className="footer-brand"><img src="/images/rhinory-logo.png" alt="RHINORY" /><p>HOUSE · LAND · OUTDOOR</p></div><div className="footer-links"><div><strong>SHOP</strong><Link href="/category/boundary">울타리 · 담장</Link><Link href="/category/gate">대문 · 출입</Link><Link href="/category/storage">창고 · 수납</Link><Link href="/category/outdoor">퍼골라 · 데크</Link></div><div><strong>HELP</strong><Link href="/guide">구매 가이드</Link><Link href="/consult">설치 상담</Link><Link href="/faq">배송 · A/S</Link><Link href="/contact">고객센터</Link></div><div><strong>ABOUT</strong><Link href="/about">RHINORY 소개</Link><Link href="/partner">입점문의</Link><Link href="/project">설치 사례</Link><Link href="/guide">매거진</Link></div></div></div><div className="footer-bottom page-frame"><span>© 2026 RHINORY. All rights reserved.</span><span>사업자정보 · 이용약관 · 개인정보처리방침</span><span>HOUSE · LAND · OUTDOOR</span></div></footer>
+      <footer className="site-footer"><div className="footer-top page-frame"><div className="footer-brand"><img src="/images/rhinory-logo.png" alt="RHINORY" /><p>HOUSE · LAND · OUTDOOR</p></div><div className="footer-links"><div><strong>SHOP</strong><Link href="/category/boundary">울타리 · 담장</Link><Link href="/category/gate">대문 · 출입</Link><Link href="/category/storage">창고 · 수납</Link><Link href="/category/outdoor">퍼골라 · 데크</Link></div><div><strong>HELP</strong><Link href="/guide">구매 가이드</Link><Link href="/consult">설치 상담</Link><Link href="/faq">배송 · A/S</Link><Link href="/contact">고객센터</Link></div><div><strong>ABOUT</strong><Link href="/about">RHINORY 소개</Link><Link href="/partner">입점문의</Link><Link href="/project">설치 사례</Link><Link href="/guide">매거진</Link></div></div></div><div className="footer-bottom page-frame"><span>© 2026 RHINORY. All rights reserved.</span><span className="footer-legal"><Link href="/about">사업자정보</Link><Link href="/terms">이용약관</Link><Link href="/privacy">개인정보처리방침</Link></span><span>HOUSE · LAND · OUTDOOR</span></div></footer>
 
-      {searchOpen && <div className="search-overlay" role="dialog" aria-modal="true" aria-label="상품 검색"><button className="search-close" onClick={() => setSearchOpen(false)} aria-label="검색 닫기">×</button><div className="search-box"><p className="eyebrow">RHINORY SEARCH</p><h2>무엇을 찾고 계세요?</h2><div className="large-search"><input autoFocus placeholder="울타리, 자동대문, 야외창고..." /><SearchIcon /></div><div className="search-suggestions"><span>요즘 많이 찾는 검색어</span><Link href="/category/boundary">알루미늄 울타리</Link><Link href="/category/gate">자동대문 설치</Link><Link href="/category/storage">야외창고</Link><Link href="/category/outdoor">퍼골라</Link></div></div></div>}
+      {searchOpen && <div className="search-overlay" role="dialog" aria-modal="true" aria-label="상품 검색"><button className="search-close" onClick={() => setSearchOpen(false)} aria-label="검색 닫기">×</button><div className="search-box"><p className="eyebrow">RHINORY SEARCH</p><h2>무엇을 찾고 계세요?</h2><form className="large-search" onSubmit={submitSearch}><input autoFocus value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="울타리, 자동대문, 야외창고..." aria-label="검색어" /><button type="submit" aria-label="검색 실행"><SearchIcon /></button></form><div className="search-suggestions"><span>요즘 많이 찾는 검색어</span><button type="button" onClick={() => { setSearchQuery("알루미늄 울타리"); }}>알루미늄 울타리</button><button type="button" onClick={() => { setSearchQuery("자동대문 설치"); }}>자동대문 설치</button><button type="button" onClick={() => { setSearchQuery("야외창고"); }}>야외창고</button><button type="button" onClick={() => { setSearchQuery("퍼골라"); }}>퍼골라</button></div></div></div>}
     </main>
   );
 }

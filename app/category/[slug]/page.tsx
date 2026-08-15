@@ -15,15 +15,16 @@ const data: Record<string, { name: string; code: string; desc: string }> = {
   maintenance: { name: "청소 · 제설 · 관리", code: "MAINTENANCE", desc: "집 밖의 관리까지 더 가볍게." },
 };
 
-export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function CategoryPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ q?: string }> }) {
   const { slug } = await params;
+  const { q = "" } = await searchParams;
   const category = data[slug];
   if (!category) notFound();
   const products = await getCatalogProducts(slug);
   return <SubpageShell title={category.name} kicker={`SHOP / ${category.code}`}>
     <div className="category-page page-frame">
       <div className="category-intro"><p>{category.desc}</p><span>{category.code} · PRODUCTS / INSTALLATION / GUIDE</span></div>
-      <CategoryBrowser slug={slug} code={category.code} products={products} />
+      <CategoryBrowser slug={slug} code={category.code} products={products} initialQuery={q} />
     </div>
   </SubpageShell>;
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { CatalogProduct } from "../../lib/catalog-data";
 
-type Props = { slug: string; code: string; products: CatalogProduct[] | null };
+type Props = { slug: string; code: string; products: CatalogProduct[] | null; initialQuery?: string };
 
 function imageFor(category: string, index: number) {
   if (category === "gate") return "/images/product-gate.png";
@@ -15,11 +15,11 @@ function imageFor(category: string, index: number) {
   return "/images/product-placeholder.svg";
 }
 
-export function CategoryBrowser({ slug, code, products }: Props) {
+export function CategoryBrowser({ slug, code, products, initialQuery = "" }: Props) {
   const [types, setTypes] = useState<string[]>([]);
   const [priceBand, setPriceBand] = useState("ALL");
   const [sort, setSort] = useState("RECOMMENDED");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const toggleType = (type: string) => setTypes((current) => current.includes(type) ? current.filter((item) => item !== type) : [...current, type]);
   const filtered = useMemo(() => {
     if (!products) return [];
