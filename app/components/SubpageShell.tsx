@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CartCount } from "./CartCount";
 import { MobileMenu } from "./MobileMenu";
+import { SearchLauncher } from "./SearchLauncher";
 
 export function SubpageShell({ children, title, kicker }: { children: ReactNode; title?: string; kicker?: string }) {
   return (
@@ -9,7 +10,7 @@ export function SubpageShell({ children, title, kicker }: { children: ReactNode;
       <div className="announcement"><span>RHINORY HOUSE · LAND · OUTDOOR</span><span>설치가 필요한 상품은 상담부터 도와드립니다 →</span></div>
       <header className="site-header subpage-header">
         <Link href="/" className="brand" aria-label="RHINORY 홈"><img src="/images/rhinory-logo.png" alt="RHINORY" /></Link>
-        <Link href="/" className="header-search" aria-label="상품 검색"><span>상품명, 카테고리, 브랜드를 검색해보세요.</span><svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.2" fill="none" stroke="currentColor" strokeWidth="1.7" /><path d="m15.5 15.5 4.2 4.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg></Link>
+        <SearchLauncher />
         <nav className="main-nav" aria-label="주요 메뉴"><Link href="/category/boundary">SHOP</Link><Link href="/project">PROJECT</Link><Link href="/guide">GUIDE</Link><Link href="/consult">SERVICE</Link></nav>
         <div className="header-actions"><Link href="/" className="header-text-action">홈으로</Link><Link href="/mypage" className="header-text-action">마이 RHINORY</Link><Link href="/cart" className="header-text-action cart-action">장바구니 <CartCount /></Link><Link href="/partner" className="partner-button">입점문의 →</Link><MobileMenu /></div>
       </header>

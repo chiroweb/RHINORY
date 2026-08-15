@@ -280,6 +280,28 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
 .cart-total strong { color: var(--ink); font-size: 21px; }
 .cart-form .dark-button { width: 100%; border: 0; }
 .cart-inline-notice { display: block; margin-top: 9px; color: var(--olive); font-size: 10px; }
+.cart-total small { display: inline-block; margin-top: 5px; color: #8b9389; font-size: 9px; line-height: 1.4; }
+.consent-check { display: flex !important; grid-template-columns: none !important; align-items: flex-start; gap: 8px !important; color: #687168 !important; font-size: 10px !important; line-height: 1.5; }
+.consent-check input { width: 14px; height: 14px; flex: 0 0 auto; margin: 1px 0 0; accent-color: var(--olive); }
+.consent-check a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.form-notice.success { color: var(--olive); }
+.form-notice.error { color: #a64b43; }
+.consult-loading { color: var(--muted); }
+.selected-product { display: flex; justify-content: space-between; gap: 18px; margin-bottom: 22px; padding: 13px 14px; background: #f1f3ed; border-left: 2px solid var(--olive); }
+.selected-product span { color: #7b8379; font-size: 10px; }
+.selected-product strong { font-size: 12px; font-weight: 600; text-align: right; }
+
+@media (max-width: 620px) {
+  .category-rail { height: auto; }
+  .rail-list { display: flex; overflow-x: auto; padding: 5px 0; scrollbar-width: thin; }
+  .rail-item { flex: 0 0 132px; min-height: 45px; grid-template-columns: 22px 1fr; font-size: 12px; }
+  .rail-item .rail-arrow { display: none; }
+  .filter-panel label { font-size: 12px; }
+  .filter-panel > div > span { font-size: 10px; }
+  .cart-form label { font-size: 12px; }
+  .selected-product { display: block; }
+  .selected-product strong { display: block; margin-top: 6px; text-align: left; }
+}
 .policy-page { padding-top: 45px; padding-bottom: 80px; max-width: 860px; }
 .policy-intro { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .policy-intro > p:not(.eyebrow) { margin: 0; color: #59635b; font-size: 17px; line-height: 1.65; letter-spacing: -.04em; }

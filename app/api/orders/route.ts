@@ -15,8 +15,9 @@ export async function POST(request: Request) {
   try {
     const customerName = requiredText(body.customerName, "성함", 80);
     const customerPhone = requiredText(body.customerPhone, "연락처", 40);
+    if (body.privacyConsent !== true) throw new Error("개인정보 수집·이용 동의가 필요합니다.");
     const db = getDb();
-    if (!db) return NextResponse.json({ ok: true, mode: "demo", message: "견적 요청이 접수되었습니다. DATABASE_URL 연결 후 실제 주문으로 저장됩니다." }, { status: 202 });
+    if (!db) return NextResponse.json({ error: "견적 접수 시스템이 아직 연결되지 않았습니다. 잠시 후 다시 시도해주세요." }, { status: 503 });
 
     const ids = items.map((item) => Number(item.productId)).filter((id) => Number.isSafeInteger(id) && id > 0);
     const slugs = items.map((item) => textValue(item.slug, "", 120)).filter(Boolean);
