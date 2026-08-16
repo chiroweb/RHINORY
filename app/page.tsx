@@ -184,10 +184,11 @@ export default function Home() {
             <div className="utility-topline"><span>01 / TODAY&apos;S PICK</span><Arrow light /></div>
             <div className="utility-content"><p className="eyebrow light-eyebrow">오늘의 특가</p><h2>알루미늄 슬라이딩 대문</h2><div className="countdown"><span>23%</span><strong>08 : 45 : 12</strong></div><p className="utility-price">990,000원<span>~</span></p></div>
           </Link>
-          <Link href="/category/boundary" className="utility-card categories-card">
-            <div className="utility-topline"><span>02 / NOW IN RHINORY</span><Arrow /></div><div className="utility-content"><p className="eyebrow">인기 카테고리</p><h2>지금 가장 많이 찾는 것</h2></div>
-            <div className="mini-category-row">{[categories[0], categories[1], categories[2], categories[4]].map(([code, label]) => <div key={code}><span className="mini-icon"><CategoryIcon type={code} /></span><small>{label.split(" · ")[0]}</small></div>)}</div>
-          </Link>
+          <section className="utility-card categories-card" aria-labelledby="popular-category-title">
+            <Link href="/category/boundary" className="utility-topline"><span>02 / NOW IN RHINORY</span><Arrow /></Link>
+            <div className="utility-content"><p className="eyebrow">인기 카테고리</p><h2 id="popular-category-title">지금 가장 많이 찾는 것</h2></div>
+            <div className="mini-category-row">{[categories[0], categories[1], categories[2], categories[4]].map(([code, label, href]) => <Link href={href} key={code} aria-label={`${label} 상품 보기`}><span className="mini-icon"><CategoryIcon type={code} /></span><small>{label.split(" · ")[0]}</small></Link>)}</div>
+          </section>
           <Link href="/consult" className="utility-card consult-card">
             <div className="utility-topline"><span>03 / RHINORY SERVICE</span><Arrow /></div><div className="utility-content"><p className="eyebrow">무료 설치 상담</p><h2>우리 집에 맞는 방법을<br />함께 찾아보세요.</h2><span className="outline-button">상담 신청하기 <Arrow /></span></div><span className="consult-mark">SITE<br />PLAN</span>
           </Link>
