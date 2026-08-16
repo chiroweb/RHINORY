@@ -78,6 +78,20 @@ export const suppliers = pgTable("suppliers", {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
+export const members = pgTable("members", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  phone: text("phone").notNull().unique(),
+  recipientName: text("recipient_name").notNull().default(""),
+  recipientPhone: text("recipient_phone").notNull().default(""),
+  postalCode: text("postal_code").notNull().default(""),
+  address: text("address").notNull().default(""),
+  detailAddress: text("detail_address").notNull().default(""),
+  deliveryNote: text("delivery_note").notNull().default(""),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const orders = pgTable("orders", {
   id: serial("id").primaryKey(),
   orderNumber: text("order_number").notNull().unique(),

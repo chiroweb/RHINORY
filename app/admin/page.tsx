@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 type Product = { id: number; name: string; sku: string; categorySlug: string; productType: string; status: string; priceText: string; supplierName: string; thumbnailUrl: string; quantity: number; reserved: number; reorderPoint: number; tags?: string[] };
@@ -16,6 +17,7 @@ type ProductOption = { id: number; name: string; value: string; priceDelta: numb
 const placeholder = "/images/product-placeholder.svg";
 
 export default function AdminPage() {
+  const pathname = usePathname();
   const [key, setKey] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [mode, setMode] = useState<"database" | "demo" | "unknown">("unknown");
@@ -50,7 +52,7 @@ export default function AdminPage() {
 
   // The first load synchronizes the admin session with the server.
   // eslint-disable-next-line react-hooks/set-state-in-effect, react-hooks/exhaustive-deps
-  useEffect(() => { load().catch(() => setAuthenticated(false)); }, []);
+  useEffect(() => { if (pathname === "/admin") { window.location.replace("/admin/rhino"); return; } load().catch(() => setAuthenticated(false)); }, [pathname]);
 
   const login = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -120,7 +122,8 @@ export default function AdminPage() {
 
   const lowStock = useMemo(() => products.filter((product) => product.quantity - product.reserved <= product.reorderPoint), [products]);
 
-  if (!authenticated) return <main className="admin-login-page"><div className="admin-login-card"><p className="eyebrow">RHINORY BACK OFFICE</p><h1>운영자 로그인</h1><p>상품, 재고, 이미지, 문의를 관리하는 내부 운영 화면입니다.</p><form onSubmit={login}><label>관리자 접근 키<input type="password" value={key} onChange={(event) => setKey(event.target.value)} placeholder="ADMIN_ACCESS_KEY" autoFocus /></label><button className="dark-button" type="submit">관리자 화면 들어가기</button></form>{notice && <p className="admin-notice">{notice}</p>}<Link href="/">소비자 사이트로 돌아가기</Link></div></main>;
+  if (pathname === "/admin") return null;
+  if (!authenticated) return <main className="admin-login-page"><div className="admin-login-card"><p className="eyebrow">RHINORY BACK OFFICE / RHINO</p><h1>운영자 로그인</h1><p>상품, 재고, 이미지, 문의를 관리하는 내부 운영 화면입니다.</p><form onSubmit={login}><label>관리자 비밀번호<input type="password" value={key} onChange={(event) => setKey(event.target.value)} placeholder="비밀번호를 입력해주세요" autoFocus /></label><button className="dark-button" type="submit">관리자 화면 들어가기</button></form>{notice && <p className="admin-notice">{notice}</p>}<Link href="/">소비자 사이트로 돌아가기</Link></div></main>;
 
   return <main className="admin-page"><header className="admin-header"><div><p className="eyebrow">RHINORY BACK OFFICE</p><h1>운영 센터</h1></div><div className="admin-header-actions"><span className={`mode-badge ${mode}`}>{mode === "database" ? "DATABASE CONNECTED" : "DEMO DATA"}</span><a href="/" className="admin-link">사이트 보기</a><button onClick={async () => { await fetch("/api/admin/logout", { method: "POST" }); setAuthenticated(false); }}>로그아웃</button></div></header><nav className="admin-nav"><button className={tab === "overview" ? "active" : ""} onClick={() => setTab("overview")}>Overview</button><button className={tab === "products" ? "active" : ""} onClick={() => setTab("products")}>Products</button><button className={tab === "inventory" ? "active" : ""} onClick={() => setTab("inventory")}>Inventory</button><button className={tab === "orders" ? "active" : ""} onClick={() => setTab("orders")}>Orders</button><button className={tab === "inquiries" ? "active" : ""} onClick={() => setTab("inquiries")}>Inquiries</button><button className={tab === "suppliers" ? "active" : ""} onClick={() => setTab("suppliers")}>Suppliers</button><button className={tab === "categories" ? "active" : ""} onClick={() => setTab("categories")}>Categories</button></nav><div className="admin-content">
     {mode === "demo" && <div className="admin-warning">현재는 데모 데이터입니다. 실제 저장을 사용하려면 <code>DATABASE_URL</code>을 넣고 DB 스키마를 적용하세요. <button onClick={seed}>초기 데이터 준비</button></div>}

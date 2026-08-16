@@ -1,0 +1,25 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+type Member = { id: number; name: string; phone: string; recipientName: string; recipientPhone: string; postalCode: string; address: string; detailAddress: string; deliveryNote: string };
+
+const emptyProfile = { recipientName: "", recipientPhone: "", postalCode: "", address: "", detailAddress: "", deliveryNote: "" };
+
+export function MemberAccount() {
+  const [member, setMember] = useState<Member | null>(null);
+  const [identity, setIdentity] = useState({ name: "", phone: "" });
+  const [profile, setProfile] = useState(emptyProfile);
+  const [notice, setNotice] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const sync = (next: Member | null) => { setMember(next); if (next) setProfile({ recipientName: next.recipientName || next.name, recipientPhone: next.recipientPhone || next.phone, postalCode: next.postalCode, address: next.address, detailAddress: next.detailAddress, deliveryNote: next.deliveryNote }); };
+  useEffect(() => { fetch("/api/member").then((response) => response.json()).then((body) => sync(body.member)).catch(() => setNotice("회원 정보를 불러오지 못했습니다.")).finally(() => setLoading(false)); }, []);
+  const login = async (event: React.FormEvent) => { event.preventDefault(); setNotice(""); const response = await fetch("/api/member", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(identity) }); const body = await response.json().catch(() => ({})); if (!response.ok) { setNotice(body.error || "회원 정보를 확인해주세요."); return; } sync(body.member); setIdentity({ name: "", phone: "" }); setNotice(body.message || "로그인되었습니다."); };
+  const saveProfile = async (event: React.FormEvent) => { event.preventDefault(); setNotice(""); const response = await fetch("/api/member", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(profile) }); const body = await response.json().catch(() => ({})); if (!response.ok) { setNotice(body.error || "배송정보 저장에 실패했습니다."); return; } sync(body.member); setNotice("배송 기본정보가 저장되었습니다."); };
+  const logout = async () => { await fetch("/api/member", { method: "DELETE" }); sync(null); setNotice("로그아웃되었습니다."); };
+
+  if (loading) return <div className="member-account page-frame"><p className="eyebrow">ACCOUNT / RHINORY</p><p className="account-loading">회원 정보를 확인하고 있습니다.</p></div>;
+  if (!member) return <div className="member-account page-frame"><div className="member-intro"><p className="eyebrow">ACCOUNT / SIMPLE SIGN IN</p><h2>이름과 전화번호로<br />간편하게 시작하세요.</h2><p>별도 비밀번호나 외부 인증 없이 주문과 상담에 필요한 기본 정보만 관리합니다.</p></div><form className="member-login-form" onSubmit={login}><label>이름<input required value={identity.name} onChange={(event) => setIdentity({ ...identity, name: event.target.value })} placeholder="이름을 입력해주세요" /></label><label>휴대폰 번호<input required inputMode="tel" value={identity.phone} onChange={(event) => setIdentity({ ...identity, phone: event.target.value })} placeholder="010-0000-0000" /></label><button className="dark-button" type="submit">로그인 · 회원가입 →</button>{notice && <p className="form-notice error">{notice}</p>}</form></div>;
+  return <div className="member-account page-frame"><div className="account-heading"><div><p className="eyebrow">ACCOUNT / {member.phone}</p><h2>{member.name}님의 RHINORY</h2><p>주문과 설치 상담에 사용할 기본 배송정보를 확인하세요.</p></div><button type="button" className="text-button" onClick={logout}>로그아웃</button></div><form className="member-profile-form" onSubmit={saveProfile}><div className="profile-section"><p className="eyebrow">IDENTITY</p><div className="profile-identity"><div><span>이름</span><strong>{member.name}</strong></div><div><span>로그인 전화번호</span><strong>{member.phone}</strong></div></div></div><div className="profile-section"><p className="eyebrow">DELIVERY DEFAULT</p><div className="profile-grid"><label>수령인<input required value={profile.recipientName} onChange={(event) => setProfile({ ...profile, recipientName: event.target.value })} /></label><label>수령인 연락처<input required inputMode="tel" value={profile.recipientPhone} onChange={(event) => setProfile({ ...profile, recipientPhone: event.target.value })} /></label><label>우편번호<input value={profile.postalCode} onChange={(event) => setProfile({ ...profile, postalCode: event.target.value })} placeholder="우편번호" /></label><label className="profile-wide">주소<input required value={profile.address} onChange={(event) => setProfile({ ...profile, address: event.target.value })} placeholder="기본 주소" /></label><label className="profile-wide">상세주소<input value={profile.detailAddress} onChange={(event) => setProfile({ ...profile, detailAddress: event.target.value })} placeholder="동·호수, 마당 위치 등" /></label><label className="profile-wide">배송 메모<textarea rows={3} value={profile.deliveryNote} onChange={(event) => setProfile({ ...profile, deliveryNote: event.target.value })} placeholder="배송 시 요청사항" /></label></div></div><button className="dark-button" type="submit">배송 기본정보 저장 →</button>{notice && <p className="form-notice success">{notice}</p>}</form></div>;
+}

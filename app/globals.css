@@ -218,6 +218,29 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
 .option-list { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
 .option-list span { padding: 4px 5px; background: #fff; border: 1px solid #d8ded6; color: #647064; font-size: 9px; }
 .option-list button { margin-left: 5px; border: 0; background: transparent; color: #a04d43; }
+
+.member-account { padding-top: 36px; padding-bottom: 76px; }
+.member-intro { max-width: 560px; padding: 42px 0 30px; border-bottom: 1px solid var(--line); }
+.member-intro h2, .account-heading h2 { margin: 0; font-size: 36px; line-height: 1.2; letter-spacing: -.07em; }
+.member-intro > p:not(.eyebrow), .account-heading > div > p:not(.eyebrow) { margin: 18px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.member-login-form, .member-profile-form { max-width: 680px; margin-top: 28px; padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 5px; }
+.member-login-form { display: grid; gap: 16px; max-width: 480px; }
+.member-login-form label, .profile-grid label { display: grid; gap: 7px; color: #687168; font-size: 11px; }
+.member-login-form input, .profile-grid input, .profile-grid textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 3px; background: #fff; color: var(--ink); font: inherit; font-size: 12px; outline: none; }
+.member-login-form input:focus, .profile-grid input:focus, .profile-grid textarea:focus { border-color: var(--olive); }
+.account-loading { color: var(--muted); font-size: 13px; }
+.account-heading { display: flex; align-items: end; justify-content: space-between; padding: 36px 0 28px; border-bottom: 1px solid var(--line); }
+.account-heading .text-button { font-size: 11px; }
+.member-profile-form { max-width: 860px; padding: 0; background: transparent; border: 0; }
+.profile-section { padding: 26px 0; border-bottom: 1px solid var(--line); }
+.profile-identity { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.profile-identity > div { display: grid; gap: 6px; padding: 16px; background: #fff; border: 1px solid var(--line); }
+.profile-identity span { color: #889188; font-size: 10px; }
+.profile-identity strong { font-size: 14px; font-weight: 600; }
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.profile-wide { grid-column: 1 / -1; }
+.member-profile-form > .dark-button { margin-top: 26px; }
+@media (max-width: 620px) { .member-account { padding-top: 20px; padding-bottom: 52px; }.member-intro h2, .account-heading h2 { font-size: 29px; }.member-login-form, .member-profile-form { margin-top: 20px; padding: 20px 17px; }.member-profile-form { padding-inline: 0; }.account-heading { align-items: flex-start; gap: 18px; flex-direction: column; }.profile-identity, .profile-grid { grid-template-columns: 1fr; }.profile-wide { grid-column: auto; } }
 .cart-page { padding-top: 42px; padding-bottom: 76px; }
 .cart-layout { display: grid; grid-template-columns: 1.12fr .88fr; gap: 38px; align-items: start; }
 
