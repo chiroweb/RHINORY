@@ -4,6 +4,10 @@ import { CartCount } from "./CartCount";
 import { MobileMenu } from "./MobileMenu";
 import { SearchLauncher } from "./SearchLauncher";
 
+function CartIcon() {
+  return <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h2l1.8 10.2h10.8L20.5 8H6.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><circle cx="9" cy="19" r="1.2" fill="currentColor" /><circle cx="17" cy="19" r="1.2" fill="currentColor" /></svg>;
+}
+
 export function SubpageShell({ children, title, kicker }: { children: ReactNode; title?: string; kicker?: string }) {
   return (
     <main>
@@ -12,7 +16,7 @@ export function SubpageShell({ children, title, kicker }: { children: ReactNode;
         <Link href="/" className="brand" aria-label="RHINORY 홈"><img src="/images/rhinory-logo.png" alt="RHINORY" /></Link>
         <SearchLauncher />
         <nav className="main-nav" aria-label="주요 메뉴"><Link href="/category/boundary">SHOP</Link><Link href="/project">PROJECT</Link><Link href="/guide">GUIDE</Link><Link href="/consult">SERVICE</Link></nav>
-        <div className="header-actions"><Link href="/" className="header-text-action">홈으로</Link><Link href="/mypage" className="header-text-action">마이 RHINORY</Link><Link href="/cart" className="header-text-action cart-action">장바구니 <CartCount /></Link><Link href="/partner" className="partner-button">입점문의 →</Link><MobileMenu /></div>
+        <div className="header-actions"><Link href="/" className="header-text-action">홈으로</Link><Link href="/mypage" className="header-text-action">마이 RHINORY</Link><Link href="/cart" className="header-text-action cart-action"><CartIcon /><span className="header-cart-label">장바구니</span> <CartCount /></Link><Link href="/partner" className="partner-button">입점문의 →</Link><MobileMenu /></div>
       </header>
       {title && <div className="subpage-title page-frame"><p className="eyebrow">{kicker || "RHINORY / SPACE & PRODUCT"}</p><h1>{title}</h1></div>}
       {children}

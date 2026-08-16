@@ -58,6 +58,7 @@ function CategoryIcon({ type }: { type: string }) {
 }
 
 function SearchIcon() { return <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.2" fill="none" stroke="currentColor" strokeWidth="1.7" /><path d="m15.5 15.5 4.2 4.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>; }
+function CartIcon() { return <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h2l1.8 10.2h10.8L20.5 8H6.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><circle cx="9" cy="19" r="1.2" fill="currentColor" /><circle cx="17" cy="19" r="1.2" fill="currentColor" /></svg>; }
 function MenuIcon() { return <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>; }
 function StarIcon() { return <svg className="rating-star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" fill="currentColor" /></svg>; }
 
@@ -144,7 +145,7 @@ export default function Home() {
         <div className="header-actions">
           <button className="icon-action search-trigger" onClick={() => setSearchOpen(true)} aria-label="검색 열기"><SearchIcon /></button>
           <Link href="/mypage" className="header-text-action">마이 RHINORY</Link>
-          <Link href="/cart" className="header-text-action cart-action">장바구니 <CartCount /></Link>
+          <Link href="/cart" className="header-text-action cart-action"><CartIcon /><span className="header-cart-label">장바구니</span> <CartCount /></Link>
           <Link href="/partner" className="partner-button">입점문의 <Arrow light /></Link>
           <MobileMenu />
         </div>
