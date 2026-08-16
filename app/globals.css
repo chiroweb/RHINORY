@@ -292,6 +292,38 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
   .footer-bottom { display: block; line-height: 2; }
   .footer-bottom span { display: block; }
 }
+
+/* Back-office tables become readable cards on narrow screens.  This prevents
+   product, stock, order and supplier controls from disappearing off-canvas. */
+@media (max-width: 767px) {
+  .admin-table-wrap { overflow: visible; }
+  .admin-table { min-width: 0; }
+  .admin-table thead { display: none; }
+  .admin-table, .admin-table tbody, .admin-table tr, .admin-table td { display: block; width: 100%; }
+  .admin-table tbody { padding: 0 12px 12px; }
+  .admin-table tr { margin-top: 10px; padding: 12px; background: #fff; border: 1px solid var(--line); border-radius: 4px; }
+  .admin-table td { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; min-height: 34px; padding: 8px 0; border-bottom: 1px solid #eceee9; }
+  .admin-table td:first-child { padding-top: 0; }
+  .admin-table td:last-child { padding-bottom: 0; border-bottom: 0; }
+  .admin-table td::before { flex: 0 0 86px; color: #8a9288; font-size: 9px; letter-spacing: .06em; content: attr(data-label); }
+  .admin-table td > *:last-child { max-width: calc(100% - 100px); }
+  .admin-table td[data-label="상품"] { display: block; }
+  .admin-table td[data-label="상품"]::before { display: block; margin-bottom: 8px; }
+  .admin-table td[data-label="상품"] > *:last-child { max-width: none; }
+  .admin-table .table-product { min-width: 0; }
+  .admin-table .table-product strong { font-size: 12px; }
+  .admin-table select, .admin-table input { width: 100%; max-width: 190px; }
+  .admin-table .image-url-input { width: 100%; max-width: 190px; }
+  .admin-table .supplier-cell { max-width: 190px; }
+  .admin-table .gallery-panel { width: min(100%, 280px); }
+  .admin-table td[data-label="공급사 / 썸네일"] { display: block; }
+  .admin-table td[data-label="공급사 / 썸네일"]::before { display: block; margin-bottom: 8px; }
+  .admin-table td[data-label="공급사 / 썸네일"] > *:last-child { max-width: none; }
+  .admin-table td[data-label="저장"] { justify-content: flex-end; }
+  .admin-table td[data-label="저장"]::before { align-self: center; }
+  .admin-table td[data-label="저장"] .save-button { max-width: none; }
+  .admin-table .upload-button { max-width: 190px; }
+}
 .upload-button { display: inline-block; position: relative; margin-top: 6px; padding: 6px 8px; border: 1px solid #b8c0b6; color: #5f6b61; cursor: pointer; font-size: 9px; }
 .form-notice { margin: 13px 0 0; color: var(--olive); font-size: 11px; line-height: 1.5; }
 .supplier-form { display: grid; grid-template-columns: 1.4fr .9fr 1fr 1fr 1.4fr auto; gap: 8px; margin: 0 24px 22px; padding: 17px; background: #f5f7f3; border: 1px solid var(--line); }
