@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { SubpageShell } from "../../components/SubpageShell";
 import { CategoryBrowser } from "../../components/CategoryBrowser";
 import { getCatalogProducts } from "../../../lib/catalog-data";
@@ -24,6 +25,19 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   return <SubpageShell title={category.name} kicker={`SHOP / ${category.code}`}>
     <div className="category-page page-frame">
       <div className="category-intro"><p>{category.desc}</p><span>{category.code} · PRODUCTS / INSTALLATION / GUIDE</span></div>
+      <nav className="category-switcher" aria-label="상품 카테고리">
+        {Object.entries(data).map(([categorySlug, item]) => (
+          <Link
+            key={categorySlug}
+            href={`/category/${categorySlug}`}
+            className={categorySlug === slug ? "active" : ""}
+            aria-current={categorySlug === slug ? "page" : undefined}
+          >
+            <span>{item.code}</span>
+            {item.name}
+          </Link>
+        ))}
+      </nav>
       <CategoryBrowser slug={slug} code={category.code} products={products} initialQuery={q} />
     </div>
   </SubpageShell>;
