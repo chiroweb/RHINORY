@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "../../../../../db";
 import { suppliers } from "../../../../../db/schema";
 import { isAdminAuthorized } from "../../../../../lib/admin-auth";
+import { recordAdminActivity } from "../../../../../lib/admin-activity";
 
 export const runtime = "nodejs";
 
@@ -17,5 +18,6 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   for (const key of allowed) if (body[key] !== undefined) values[key] = String(body[key]);
   const result = await db.update(suppliers).set(values).where(eq(suppliers.id, Number(id))).returning();
   if (!result[0]) return NextResponse.json({ error: "공급사를 찾을 수 없습니다." }, { status: 404 });
+  await recordAdminActivity(db, "UPDATE", "SUPPLIER", id, { fields: Object.keys(values) });
   return NextResponse.json({ supplier: result[0] });
 }

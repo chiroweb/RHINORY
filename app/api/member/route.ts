@@ -16,6 +16,7 @@ export async function GET() {
 export async function POST(request: Request) {
   const db = getDb();
   if (!db) return NextResponse.json({ error: "회원 시스템이 아직 연결되지 않았습니다." }, { status: 503 });
+  if (!process.env.MEMBER_SESSION_SECRET && !process.env.AUTH_SECRET && process.env.NODE_ENV === "production") return NextResponse.json({ error: "회원 세션 보안키가 설정되지 않았습니다." }, { status: 503 });
   try {
     const body = await request.json().catch(() => ({}));
     const { name, phone } = validateMemberIdentity(body.name, body.phone);
@@ -24,8 +25,10 @@ export async function POST(request: Request) {
       ? await db.update(members).set({ name, updatedAt: new Date() }).where(eq(members.id, existing[0].id)).returning()
       : await db.insert(members).values({ name, phone, recipientName: name, recipientPhone: phone }).returning();
     const member = result[0];
+    const cookie = memberCookie(member.id);
+    if (!cookie) return NextResponse.json({ error: "회원 세션을 시작할 수 없습니다." }, { status: 503 });
     const response = NextResponse.json({ ok: true, member: publicMember(member), message: existing[0] ? "로그인되었습니다." : "회원가입과 로그인이 완료되었습니다." });
-    response.cookies.set(memberCookie(member.id));
+    response.cookies.set(cookie);
     return response;
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "회원 정보를 확인해주세요." }, { status: 400 });

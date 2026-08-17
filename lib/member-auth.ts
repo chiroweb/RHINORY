@@ -7,7 +7,9 @@ import { members } from "../db/schema";
 const COOKIE_NAME = "rhinory_member_session";
 
 function sessionSecret() {
-  return process.env.MEMBER_SESSION_SECRET || process.env.AUTH_SECRET || process.env.ADMIN_ACCESS_KEY || "rhinory-member-local";
+  const configured = process.env.MEMBER_SESSION_SECRET || process.env.AUTH_SECRET;
+  if (configured) return configured;
+  return process.env.NODE_ENV !== "production" ? process.env.ADMIN_ACCESS_KEY || "rhinory-member-local" : null;
 }
 
 export function normalizePhone(value: unknown) {
@@ -23,11 +25,14 @@ export function validateMemberIdentity(nameValue: unknown, phoneValue: unknown) 
 }
 
 function signature(memberId: number) {
-  return createHmac("sha256", sessionSecret()).update(`member:${memberId}`).digest("hex");
+  const secret = sessionSecret();
+  return secret ? createHmac("sha256", secret).update(`member:${memberId}`).digest("hex") : null;
 }
 
 export function memberCookie(memberId: number) {
-  return { name: COOKIE_NAME, value: `${memberId}.${signature(memberId)}`, httpOnly: true, sameSite: "lax" as const, secure: process.env.NODE_ENV === "production", path: "/", maxAge: 60 * 60 * 24 * 30 };
+  const signed = signature(memberId);
+  if (!signed) return null;
+  return { name: COOKIE_NAME, value: `${memberId}.${signed}`, httpOnly: true, sameSite: "lax" as const, secure: process.env.NODE_ENV === "production", path: "/", maxAge: 60 * 60 * 24 * 30 };
 }
 
 export function clearMemberCookie() {
@@ -40,6 +45,7 @@ function memberIdFromToken(token: string | undefined) {
   const memberId = Number(idText);
   if (!Number.isSafeInteger(memberId) || !actual) return null;
   const expected = signature(memberId);
+  if (!expected) return null;
   const actualBuffer = Buffer.from(actual);
   const expectedBuffer = Buffer.from(expected);
   if (actualBuffer.length !== expectedBuffer.length || !timingSafeEqual(actualBuffer, expectedBuffer)) return null;
@@ -47,6 +53,7 @@ function memberIdFromToken(token: string | undefined) {
 }
 
 export async function getCurrentMember() {
+  if (!sessionSecret()) return null;
   const db = getDb();
   if (!db) return null;
   const store = await cookies();

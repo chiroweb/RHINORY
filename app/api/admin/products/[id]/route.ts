@@ -4,6 +4,7 @@ import { getDb } from "../../../../../db";
 import { products } from "../../../../../db/schema";
 import { isAdminAuthorized } from "../../../../../lib/admin-auth";
 import { errorMessage, idValue, nonNegativeInteger, textValue } from "../../../../../lib/admin-validation";
+import { recordAdminActivity } from "../../../../../lib/admin-activity";
 
 export const runtime = "nodejs";
 
@@ -19,6 +20,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     for (const key of allowed) if (body[key] !== undefined) values[key] = key === "priceMin" || key === "sortOrder" ? nonNegativeInteger(body[key]) : textValue(body[key], "", key === "description" ? 5000 : 1000);
     const result = await db.update(products).set(values).where(eq(products.id, id)).returning();
     if (!result[0]) return NextResponse.json({ error: "상품을 찾을 수 없습니다." }, { status: 404 });
+    await recordAdminActivity(db, "UPDATE", "PRODUCT", id, { fields: Object.keys(values).filter((field) => field !== "updatedAt") });
     return NextResponse.json({ product: result[0] });
   } catch (error) {
     return NextResponse.json({ error: errorMessage(error) }, { status: 400 });
@@ -32,6 +34,7 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
   try {
     const id = idValue((await params).id);
     const result = await db.update(products).set({ status: "ARCHIVED", updatedAt: new Date() }).where(eq(products.id, id)).returning({ id: products.id });
+    if (result[0]) await recordAdminActivity(db, "ARCHIVE", "PRODUCT", id);
     return NextResponse.json({ ok: Boolean(result[0]) });
   } catch (error) {
     return NextResponse.json({ error: errorMessage(error) }, { status: 400 });

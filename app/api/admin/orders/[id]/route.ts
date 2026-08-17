@@ -4,6 +4,7 @@ import { getDb } from "../../../../../db";
 import { orders } from "../../../../../db/schema";
 import { isAdminAuthorized } from "../../../../../lib/admin-auth";
 import { errorMessage, idValue, nonNegativeInteger } from "../../../../../lib/admin-validation";
+import { recordAdminActivity } from "../../../../../lib/admin-activity";
 
 export const runtime = "nodejs";
 
@@ -20,6 +21,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     if (!Object.keys(values).length) return NextResponse.json({ error: "변경할 값이 없습니다." }, { status: 400 });
     const result = await db.update(orders).set(values).where(eq(orders.id, id)).returning();
     if (!result[0]) return NextResponse.json({ error: "주문을 찾을 수 없습니다." }, { status: 404 });
+    await recordAdminActivity(db, "UPDATE", "ORDER", id, { fields: Object.keys(values) });
     return NextResponse.json({ order: result[0] });
   } catch (error) { return NextResponse.json({ error: errorMessage(error) }, { status: 400 }); }
 }

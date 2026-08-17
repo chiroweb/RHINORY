@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "../../../db";
 import { inventory, orderItems, orders, products } from "../../../db/schema";
 import { errorMessage, nonNegativeInteger, requiredText, textValue } from "../../../lib/admin-validation";
+import { normalizePhone } from "../../../lib/member-auth";
 
 export const runtime = "nodejs";
 
@@ -14,7 +15,9 @@ export async function POST(request: Request) {
   if (!items.length || items.length > 50) return NextResponse.json({ error: "주문 상품을 확인해주세요." }, { status: 400 });
   try {
     const customerName = requiredText(body.customerName, "성함", 80);
-    const customerPhone = requiredText(body.customerPhone, "연락처", 40);
+    const customerPhone = normalizePhone(requiredText(body.customerPhone, "연락처", 40));
+    if (!/^01[0-9]{8,9}$/.test(customerPhone)) throw new Error("휴대폰 번호를 확인해주세요.");
+    const shippingAddress = requiredText(body.shippingAddress, "배송 주소", 300);
     if (body.privacyConsent !== true) throw new Error("개인정보 수집·이용 동의가 필요합니다.");
     const db = getDb();
     if (!db) return NextResponse.json({ error: "견적 접수 시스템이 아직 연결되지 않았습니다. 잠시 후 다시 시도해주세요." }, { status: 503 });
@@ -36,7 +39,7 @@ export async function POST(request: Request) {
     });
     const totalAmount = normalized.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
     const orderNumber = `RH-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
-    const created = await db.insert(orders).values({ orderNumber, status: "QUOTE_REQUEST", customerName, customerPhone, customerEmail: textValue(body.customerEmail, "", 160), shippingAddress: textValue(body.shippingAddress, "", 300), installationAddress: textValue(body.installationAddress, "", 300), totalAmount, paymentStatus: "UNPAID", paymentProvider: "QUOTE", deliveryStatus: "NOT_STARTED" }).returning({ id: orders.id, orderNumber: orders.orderNumber });
+    const created = await db.insert(orders).values({ orderNumber, status: "QUOTE_REQUEST", customerName, customerPhone, customerEmail: textValue(body.customerEmail, "", 160), shippingAddress, installationAddress: textValue(body.installationAddress, "", 300), totalAmount, paymentStatus: "UNPAID", paymentProvider: "QUOTE", deliveryStatus: "NOT_STARTED" }).returning({ id: orders.id, orderNumber: orders.orderNumber });
     await db.insert(orderItems).values(normalized.map((item) => ({ orderId: created[0].id, productId: item.product.id, productName: item.product.name, sku: item.product.sku, quantity: item.quantity, unitPrice: item.unitPrice })));
     return NextResponse.json({ ok: true, order: created[0], message: "견적 요청이 접수되었습니다." }, { status: 201 });
   } catch (error) {

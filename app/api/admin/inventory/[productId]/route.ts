@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "../../../../../db";
 import { inventory, inventoryMovements } from "../../../../../db/schema";
 import { isAdminAuthorized } from "../../../../../lib/admin-auth";
+import { recordAdminActivity } from "../../../../../lib/admin-activity";
 
 export const runtime = "nodejs";
 
@@ -20,5 +21,6 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ pr
   if (!result[0]) return NextResponse.json({ error: "재고 정보를 찾을 수 없습니다." }, { status: 404 });
   const delta = quantity - (current[0]?.quantity ?? quantity);
   if (delta !== 0) await db.insert(inventoryMovements).values({ productId: Number(productId), delta, reason: "MANUAL", reference: "admin" });
+  await recordAdminActivity(db, "UPDATE", "INVENTORY", productId, { quantity, reorderPoint, delta });
   return NextResponse.json({ inventory: result[0] });
 }
