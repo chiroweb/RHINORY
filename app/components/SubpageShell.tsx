@@ -16,7 +16,7 @@ export function SubpageShell({ children, title, kicker }: { children: ReactNode;
         <Link href="/" className="brand" aria-label="RHINORY 홈"><img src="/images/rhinory-logo.png" alt="RHINORY" /></Link>
         <SearchLauncher />
         <nav className="main-nav" aria-label="주요 메뉴"><Link href="/category/boundary">SHOP</Link><Link href="/project">PROJECT</Link><Link href="/guide">GUIDE</Link><Link href="/consult">SERVICE</Link></nav>
-        <div className="header-actions"><Link href="/" className="header-text-action">홈으로</Link><Link href="/mypage" className="header-text-action">마이 RHINORY</Link><Link href="/cart" className="header-text-action cart-action"><CartIcon /><span className="header-cart-label">장바구니</span> <CartCount /></Link><Link href="/partner" className="partner-button">입점문의 →</Link><MobileMenu /></div>
+        <div className="header-actions"><Link href="/" className="header-text-action">홈으로</Link><Link href="/mypage" className="header-text-action">마이 RHINORY</Link><Link href="/cart" className="header-text-action cart-action"><CartIcon /><span className="header-cart-label">장바구니</span> <CartCount /></Link><Link href="/contact" className="header-text-action header-help-action">고객센터</Link><Link href="/consult" className="service-button">설치 상담 <span className="arrow arrow-light">→</span></Link><MobileMenu /></div>
       </header>
       {title && <div className="subpage-title page-frame"><p className="eyebrow">{kicker || "RHINORY / SPACE & PRODUCT"}</p><h1>{title}</h1></div>}
       {children}

@@ -10,6 +10,7 @@ const links = [
   ["SERVICE", "/consult"],
   ["마이 RHINORY", "/mypage"],
   ["장바구니", "/cart"],
+  ["고객센터", "/contact"],
   ["입점문의", "/partner"],
 ];
 

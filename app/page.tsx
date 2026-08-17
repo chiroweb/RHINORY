@@ -104,7 +104,6 @@ function ProductCard({ product, sale = false }: { product: ProductCardItem; sale
 
 export default function Home() {
   const router = useRouter();
-  const [activeCategory, setActiveCategory] = useState(0);
   const [slide, setSlide] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -146,22 +145,22 @@ export default function Home() {
           <button className="icon-action search-trigger" onClick={() => setSearchOpen(true)} aria-label="검색 열기"><SearchIcon /></button>
           <Link href="/mypage" className="header-text-action">마이 RHINORY</Link>
           <Link href="/cart" className="header-text-action cart-action"><CartIcon /><span className="header-cart-label">장바구니</span> <CartCount /></Link>
-          <Link href="/partner" className="partner-button">입점문의 <Arrow light /></Link>
+          <Link href="/contact" className="header-text-action header-help-action">고객센터</Link>
+          <Link href="/consult" className="service-button">설치 상담 <Arrow light /></Link>
           <MobileMenu />
         </div>
       </header>
 
       <section className="hero-shell page-frame">
         <aside className="category-rail">
-          <div className="rail-title"><span className="rail-menu"><MenuIcon /></span><span>전체 카테고리</span><span className="rail-code">09</span></div>
+          <div className="rail-title"><span className="rail-menu"><MenuIcon /></span><span className="rail-title-copy"><small>SHOP</small><strong>전체 카테고리</strong></span><span className="rail-code">09</span></div>
           <div className="rail-list">
-            {categories.map(([code, label, href], index) => (
-              <Link href={href} key={code} className={`rail-item ${activeCategory === index ? "active" : ""}`} onMouseEnter={() => setActiveCategory(index)}>
+            {categories.map(([code, label, href]) => (
+              <Link href={href} key={code} className="rail-item">
                 <span className="rail-icon"><CategoryIcon type={code} /></span><span>{label}</span><span className="rail-arrow">›</span>
               </Link>
             ))}
           </div>
-          <div className="rail-bottom"><span>MY RHINORY</span><Link href="/guide">구매 가이드 <Arrow /></Link></div>
         </aside>
 
         <section className="main-hero">
