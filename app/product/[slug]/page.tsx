@@ -1,8 +1,21 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { SubpageShell } from "../../components/SubpageShell";
 import { AddToCartButton } from "../../components/AddToCartButton";
 import { getCatalogProduct } from "../../../lib/catalog-data";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getCatalogProduct(slug);
+  if (!product) return {};
+  return {
+    title: `${product.name} | ${product.categorySlug.toUpperCase()}`,
+    description: product.description || `${product.name}의 가격, 설치 조건, 배송 및 A/S 정보를 확인해보세요.`,
+    alternates: { canonical: `/product/${product.slug}` },
+    openGraph: { type: "website", title: `${product.name} | RHINORY`, description: product.description || `${product.name} 설치 및 구매 정보`, url: `/product/${product.slug}`, images: [{ url: product.thumbnailUrl, alt: product.name }] },
+  };
+}
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -10,7 +23,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!product) notFound();
   const gallery = product.images.length ? product.images : [{ id: 0, url: product.thumbnailUrl, alt: "설치 전경", sortOrder: 0 }, { id: -1, url: "/images/site-plan.png", alt: "도면과 치수", sortOrder: 1 }];
   const modeLabel = product.productType === "BUY" ? "바로 구매 가능한 상품" : product.productType === "PROJECT" ? "현장 확인 후 견적 상품" : "제품 구매 + 설치 상담 상품";
+  const productSchema = { "@context": "https://schema.org", "@type": "Product", name: product.name, image: gallery.map((image) => image.url), description: product.description || `${product.name} 설치 및 구매 정보`, sku: product.sku, brand: { "@type": "Brand", name: "RHINORY" }, ...(product.productType === "BUY" ? { offers: { "@type": "Offer", url: `https://www.rhinory.shop/product/${product.slug}`, priceCurrency: "KRW", price: product.priceMin, availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition" } } : {}) };
   return <SubpageShell kicker={`PRODUCT / ${product.sku}`} title={modeLabel}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <div className="product-detail page-frame"><div className="detail-gallery"><div className="detail-main-image"><img src={gallery[0].url} alt={`${product.name} 설치 공간`} /></div><div className="detail-thumbs">{gallery.slice(0, 3).map((image) => <img key={image.id} src={image.url} alt={image.alt} />)}</div></div><div className="detail-info"><p className="eyebrow">{product.categorySlug.toUpperCase()} / {product.sku}</p><h2>{product.name}</h2><p className="detail-desc">{product.description || "RHINORY가 설치 환경과 유지관리까지 확인한 상품입니다."}</p><div className="detail-mode">{modeLabel}</div><div className="verified-line">RHINORY VERIFIED <span>공급사 · 설치 · A/S 정보 확인</span></div><div className="price-block"><span>제품 기준가</span><strong>{product.priceText}</strong><p>제품 기준가입니다. 설치비·배송비·추가 공사비는 현장 조건 확인 후 확정됩니다.</p></div><form className="detail-check" action="/consult" method="get"><strong>내 집에 설치할 수 있나요?</strong><input type="hidden" name="product" value={product.name} /><input type="hidden" name="category" value={product.categorySlug} /><label>설치 지역<select name="area" defaultValue="경기 / 수도권"><option>경기 / 수도권</option><option>서울</option><option>전국 상담</option></select></label><label>필요 길이<input name="length" placeholder="예: 18m" /></label><label>바닥 형태<select name="floor" defaultValue="콘크리트"><option>콘크리트</option><option>흙 / 잔디</option><option>확인 필요</option></select></label><div className="detail-actions"><button className="dark-button" type="submit">{product.productType === "PROJECT" ? "현장 견적 요청" : "설치 상담 신청"} <span>→</span></button>{product.productType !== "PROJECT" && <AddToCartButton item={{ productId: product.id, slug: product.slug, name: product.name, sku: product.sku, priceText: product.priceText, thumbnailUrl: product.thumbnailUrl }} />}</div></form><div className="detail-notes"><span>배송 · 설치</span><span>공급사 상담</span><span>A/S</span><span>상품별 조건 안내</span></div></div></div><section className="detail-facts page-frame" id="spec"><div><strong>배송</strong><span>상품별 배송 일정 안내</span></div><div><strong>설치</strong><span>{product.productType === "BUY" ? "설치 선택 가능 여부 상품별 확인" : "지역·현장 조건 확인 후 일정 확정"}</span></div><div><strong>교환·반품</strong><span>{product.productType === "PROJECT" ? "현장 상담 후 계약 조건 적용" : "상품별 상세 정책 확인"}</span></div><div><strong>A/S</strong><span>공급사 보증 조건에 따름</span></div></section>
     <div className="detail-tabs page-frame"><Link href="#overview">상품 설명</Link><Link href="#spec">설치 조건</Link><Link href="#case">설치 사례</Link><Link href="#faq">FAQ</Link></div><section className="detail-overview page-frame" id="overview"><p className="eyebrow">WHY RHINORY</p><h2>좋은 제품을 고르는 일보다,<br />우리 집에 맞는 제품을 고르는 일이 먼저입니다.</h2><p>제품의 형태와 소재뿐 아니라 설치 가능 지역, 바닥 조건, 필요한 부속, 관리 방법까지 구매 전 화면에서 확인할 수 있도록 설계했습니다.</p></section>
   </SubpageShell>;

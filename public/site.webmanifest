@@ -1,0 +1,17 @@
+{
+  "name": "RHINORY",
+  "short_name": "RHINORY",
+  "description": "단독주택과 야외공간에 필요한 모든 것",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#202932",
+  "theme_color": "#202932",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

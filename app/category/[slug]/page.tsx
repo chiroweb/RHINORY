@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { SubpageShell } from "../../components/SubpageShell";
 import { CategoryBrowser } from "../../components/CategoryBrowser";
 import { getCatalogProducts } from "../../../lib/catalog-data";
@@ -15,6 +16,18 @@ const data: Record<string, { name: string; code: string; desc: string }> = {
   water: { name: "수영장 · 물관리", code: "WATER", desc: "물과 함께 보내는 계절을 준비합니다." },
   maintenance: { name: "청소 · 제설 · 관리", code: "MAINTENANCE", desc: "집 밖의 관리까지 더 가볍게." },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const category = data[slug];
+  if (!category) return {};
+  return {
+    title: `${category.name} | 단독주택 외부공간 상품`,
+    description: `${category.desc} RHINORY에서 상품, 설치 조건, 가격 정보를 확인해보세요.`,
+    alternates: { canonical: `/category/${slug}` },
+    openGraph: { title: `${category.name} | RHINORY`, description: category.desc, url: `/category/${slug}` },
+  };
+}
 
 export default async function CategoryPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ q?: string }> }) {
   const { slug } = await params;
