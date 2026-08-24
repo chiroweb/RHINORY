@@ -1,6 +1,50 @@
 import Link from "next/link";
 import { SubpageShell } from "../components/SubpageShell";
+import { guideArticles } from "../../lib/guide-content";
 
-const articles = [["PRICE / GATE", "전원주택 자동대문 가격이 달라지는 5가지 조건", "제품비부터 기초공사, 전기공사까지 한 번에 이해하기", "/images/product-gate.png"], ["CHECK / STORAGE", "야외창고 설치 전, 바닥부터 확인하세요", "오래 쓰는 창고는 놓는 위치와 기초가 중요합니다", "/images/product-storage.png"], ["COMPARE / BOUNDARY", "알루미늄 울타리와 목재 펜스 비교", "관리와 수명, 프라이버시를 기준으로 고르는 법", "/images/product-fence.png"], ["CARE / GARDEN", "잔디가 쉽게 망가지지 않는 정원 관리", "계절별로 달라지는 마당 관리의 기준", "/images/product-deck.png"]];
+const featured = guideArticles[0];
 
-export default function GuidePage() { return <SubpageShell title="RHINORY GUIDE" kicker="KNOWLEDGE / EDITORIAL"><div className="guide-page page-frame"><div className="guide-page-feature"><img src="/images/hero-territory.png" alt="전원주택 외부공간 가이드" /><div><p className="eyebrow light-eyebrow">FIELD NOTE / 01</p><h2>집 밖을 더 잘 쓰는 법</h2><p>제품보다 먼저 알아야 할 설치, 관리, 비용에 대한 이야기.</p><Link href="/guide/field-note" className="dark-button">읽어보기 →</Link></div></div><div className="guide-page-grid">{articles.map(([tag, title, desc, image]) => <Link href="/guide/article" className="guide-page-card" key={title}><img src={image} alt="" /><div><span>{tag}</span><h2>{title}</h2><p>{desc}</p><small>가이드 읽기 →</small></div></Link>)}</div></div></SubpageShell>; }
+export const metadata = {
+  title: "전원주택 외부공간 가이드",
+  description: "전원주택 울타리, 자동대문, 야외창고, 데크, 정원관리와 설치비를 실제 생활 기준으로 정리한 RHINORY 가이드입니다.",
+  alternates: { canonical: "/guide" },
+  openGraph: { title: "전원주택 외부공간 가이드 | RHINORY", description: "전원주택 외부공간을 준비하는 순서와 상품 선택 기준을 확인하세요.", url: "/guide" },
+};
+
+export default function GuidePage() {
+  return (
+    <SubpageShell title="전원주택 외부공간 가이드" kicker="KNOWLEDGE / FIELD GUIDE">
+      <div className="guide-page page-frame">
+        <div className="guide-page-feature">
+          <img src={featured.image} alt="전원주택 외부공간 배치와 마당 계획 가이드" />
+          <div>
+            <p className="eyebrow light-eyebrow">{featured.tag}</p>
+            <h2>{featured.title}</h2>
+            <p>{featured.description}</p>
+            <Link href={`/guide/${featured.slug}`} className="dark-button">읽어보기 →</Link>
+          </div>
+        </div>
+
+        <div className="guide-intro-copy">
+          <p className="eyebrow">RHINORY EDITORIAL</p>
+          <h2>상품을 고르기 전에,<br />우리 집의 조건부터 확인하세요.</h2>
+          <p>전원주택 생활에서 자주 생기는 고민을 가격, 설치, 관리 기준으로 정리했습니다. 필요한 정보를 읽고 관련 상품과 설치 상담으로 바로 이어갈 수 있습니다.</p>
+        </div>
+
+        <div className="guide-page-grid">
+          {guideArticles.slice(1).map((article) => (
+            <Link href={`/guide/${article.slug}`} className="guide-page-card" key={article.slug}>
+              <img src={article.image} alt={`${article.title} 대표 이미지`} />
+              <div>
+                <span>{article.tag}</span>
+                <h2>{article.title}</h2>
+                <p>{article.description}</p>
+                <small>가이드 읽기 →</small>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </SubpageShell>
+  );
+}
